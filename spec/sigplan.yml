@@ -1,0 +1,7 @@
+---
+name: SIGPLAN
+category: computers
+subcategory: ACM
+citation_style: abbrvnat
+default_packages:
+  "*": true

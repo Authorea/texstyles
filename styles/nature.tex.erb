@@ -1,0 +1,34 @@
+%% Template for a preprint Letter or Article for submission
+%% to the journal Nature.
+%% Written by Peter Czoschke, 26 February 2004
+%%
+
+\documentclass{nature}
+
+%% make sure you have the nature.cls and naturemag.bst files where
+%% LaTeX can find them
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\title{<%=@long_title%>}
+
+%% Notice placement of commas and superscripts and use of &
+%% in the author list
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>$^{1}$<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^{<%=i+2%>}$<% end %><% end %>}
+<% end %>
+\begin{document}
+
+\maketitle
+
+\begin{affiliations}
+\item <%=@first_affiliation%>
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>
+\item <%=@coauthor_affiliations[i]%><% end %><% end %>
+\end{affiliations}
+
+<%= @abstract_begin_end %>

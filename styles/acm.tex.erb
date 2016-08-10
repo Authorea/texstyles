@@ -1,0 +1,77 @@
+% v2-acmsmall-sample.tex, dated March 6 2012
+% This is a sample file for ACM small trim journals
+%
+% Compilation using 'acmsmall.cls' - version 1.3 (March 2012), Aptara Inc.
+% (c) 2010 Association for Computing Machinery (ACM)
+%
+% Questions/Suggestions/Feedback should be addressed to => "acmtexsupport@aptaracorp.com".
+% Users can also go through the FAQs available on the journal's submission webpage.
+%
+% Steps to compile: latex, bibtex, latex latex
+%
+% For tracking purposes => this is v1.3 - March 2012
+
+\documentclass[prodmode,acmtecs]{acmsmall} % Aptara syntax
+
+% Package to generate and customize Algorithm as per ACM style
+\usepackage[ruled]{algorithm2e}
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+
+<%=@default_packages%>
+
+% Metadata Information
+\acmVolume{1}
+\acmNumber{1}
+\acmArticle{1}
+\acmYear{2013}
+\acmMonth{1}
+
+% Document starts
+\begin{document}
+
+% Page heads
+\markboth{<%=@first_author%>}{<%=@long_title%>}
+
+% Title portion
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\affil{<%=@first_affiliation%>}<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> <%=@coauthor_list[i]%>\affil{<%=@coauthor_affiliations[i]%>}<% end %><% end %>}
+<% end %>
+
+<%= @abstract_begin_end %>
+
+<%=@header%>
+
+
+%\category{C.2.2}{Computer-Communication Networks}{Network Protocols}
+
+%\terms{Design, Algorithms, Performance}
+
+%\keywords{Wireless sensor networks, media access control, multi-channel, radio interference, time synchronization}
+
+%\acmformat{}
+% At a minimum you need to supply the author names, year and a title.
+% IMPORTANT:
+% Full first names whenever they are known, surname last, followed by a period.
+% In the case of two authors, 'and' is placed between them.
+% In the case of three or more authors, the serial comma is used, that is, all author names
+% except the last one but including the penultimate author's name are followed by a comma,
+% and then 'and' is placed before the final author's name.
+% If only first and middle initials are known, then each initial
+% is followed by a period and they are separated by a space.
+% The remaining information (journal title, volume, article number, date, etc.) is 'auto-generated'.
+
+%\begin{bottomstuff}
+%\end{bottomstuff}
+
+\maketitle
+
+
+

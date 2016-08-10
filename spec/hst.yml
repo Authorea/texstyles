@@ -1,0 +1,6 @@
+---
+name: Hubble Space Telescope
+category: grants
+citation_style: plain
+default_packages:
+  "*": true

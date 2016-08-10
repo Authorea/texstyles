@@ -1,0 +1,93 @@
+%------------------------------------------------------------------------------
+% This is a LaTeX template for the scientific justification of IRAM Proposals
+%------------------------------------------------------------------------------
+%
+% We encourage IRAM proposers to use this template for the sake of unity
+% and clarity when Program Committee members assess their proposals.
+%
+% You may customize this template to suit your preferences (e.g. using BibTex),
+% but please respect the following requirements:
+%     The scientific and technical justification should contain a
+%     maximum of 2 pages of text (4 pages for Large Programs),
+%     plus 2 pages of Figs., Tables and Refs.
+%     The font size should be 11pt or larger.
+%
+% For Large Programs, the following sections should be included:
+%   i) Scientific Rationale,
+%  ii) Immediate Objective,
+% iii) Feasibility and Technical Justification, and
+%  iv) Organizational Issues.
+%
+%
+%------------------------------------------------------------------------------
+%
+\documentclass[11pt,a4paper,twoside,graphicx,color]{article}
+%
+\usepackage[margin=2cm]{geometry}
+<%=@default_packages%>
+%
+% Page size and text dimensions
+% Do not change!
+\textheight 260mm
+\textwidth 178mm
+\oddsidemargin -8mm
+\evensidemargin -8mm
+\marginparwidth 50pt
+\topmargin -22mm
+\brokenpenalty=10000
+\sloppy
+%
+
+<%=@header%>
+%-------------------------------------------------------------------
+\begin{document}
+%
+%
+\begin{center}{\huge \bf
+%-------------------------------------------------------------------
+<%=@long_title%>
+%-------------------------------------------------------------------
+}\end{center}
+%
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+  \centerline{\bf P.I.: <%=@first_author%>}
+<% end %>
+
+%\section{Scientific context}
+%
+%Start the scientific justification here...
+%
+%\subsection{Structure your proposal}
+%
+%\subsection{Another subsection}
+%
+%\section{Planned observations}
+%
+%\section{Technical justification}
+%
+%
+%\section{Supporting material}
+% You may include up to two pages of figures, tables, and References.
+%
+% Below is an example for including a figure in your proposal.
+% If you are compiling with pdflatex, you can include jpeg, png, and pdf files.
+% if compiling with latex, only eps files can be included.
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{image.png}
+%    \caption{Enter the figure caption here.}
+%    \label{fig:myPlot_1}
+%\end{figure}
+%
+%%%%%%%%%%%%
+%\begin{thebibliography}{9}
+%
+%\bibitem{lamport94}
+%  Leslie Lamport,
+%  \emph{\LaTeX: A Document Preparation System}.
+%  Addison Wesley, Massachusetts,
+%  2nd Edition,
+% 1994.
+%\end{thebibliography}

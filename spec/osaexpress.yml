@@ -1,0 +1,7 @@
+---
+name: Express
+category: physics
+subcategory: Optics
+citation_style: osajnl
+default_packages:
+  "*": true

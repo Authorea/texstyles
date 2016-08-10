@@ -1,0 +1,46 @@
+%
+% File acl2014.tex
+%
+% Contact: koller@ling.uni-potsdam.de, yusuke@nii.ac.jp
+%%
+%% Based on the style files for ACL-2013, which were, in turn,
+%% Based on the style files for ACL-2012, which were, in turn,
+%% based on the style files for ACL-2011, which were, in turn,
+%% based on the style files for ACL-2010, which were, in turn,
+%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
+%% based on the style files for EACL-2009 and IJCNLP-2008...
+
+%% Based on the style files for EACL 2006 by
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt]{article}
+<%=@default_packages%>
+\usepackage{acl2014}
+\usepackage{times}
+%\usepackage{url}
+%\usepackage{latexsym}
+
+
+%\setlength\titlebox{5cm}
+
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+<%=@header%>
+
+
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\\ <%=@first_affiliation%>\\ <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> \And <%=@coauthor_list[i]%>\\ <%=@coauthor_affiliations[i]%>\\<% end %><% end %>}
+<% end %>
+\date{}
+
+\begin{document}
+\maketitle
+<%= @abstract_begin_end %>
+

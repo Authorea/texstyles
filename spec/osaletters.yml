@@ -1,0 +1,7 @@
+---
+name: Letters
+category: physics
+subcategory: Optics
+citation_style: ol
+default_packages:
+  "*": true

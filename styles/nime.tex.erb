@@ -1,0 +1,82 @@
+% Template for NIME 2015
+%
+% Modified by Edgar Berdahl on 5 November 2014
+% Modified by Baptiste Caramiaux on 25 November 2013
+% Modified by Kyogu Lee on 7 October 2012
+% Modified by Georg Essl on 7 November 2011
+%
+% Based on "sig-alternate.tex" V1.9 April 2009
+% This file should be compiled with "nime2011.cls"
+%
+
+\documentclass{nime-alternate}
+<%=@default_packages%>
+<%=@header%>
+
+\begin{document}
+\conferenceinfo{NIME'16,}{July 11-15, 2016, Griffith University, Brisbane, Australia.}
+
+\title{<%=@long_title%>}
+
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\numberofauthors{<%= 1 + @coauthor_list.to_a.length %>}
+\author{\alignauthor
+<%=@first_author%>\\%
+\affaddr{<%=@first_affiliation%>}\\%
+%<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\alignauthor
+<%=@coauthor_list[i]%>\\%
+\affaddr{<%=@coauthor_affiliations[i]%>}
+%<% end %><% end %>
+}
+<% end %> <%# end of alternative_author_string else %>
+
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(K. Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+
+\date{\today}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+
+%\acmclassification1998{See \url{http://www.acm.org/about/class/1998/} to obtain categories and subject descriptors for classifying this paper. An example follows:
+%H.5.5 [Information Interfaces and Presentation] Sound and Music Computing, H.5.2 [Information Interfaces and Presentation] User Interfaces---Haptic I/O, I.2.9 [Artificial Intelligence] Robotics---Propelling mechanisms.
+%\textbf{The new requirements for classifying the papers at the time of submission are detailed.  It is strongly recommended that authors view the submission form prior to starting to write the paper.  See the file \texttt{ScientificProgramSubmissionFormPreview.pdf} for a preview.  (Do \emph{not} create a dummy submission to view the submission form.)}}
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+\keywords{NIME, proceedings}

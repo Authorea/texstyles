@@ -1,0 +1,6 @@
+---
+name: SPIE Journal
+category: other
+citation_style: spiejour
+default_packages:
+  "*": true

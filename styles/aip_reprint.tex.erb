@@ -1,0 +1,67 @@
+%% ****** Start of file aiptemplate.tex ****** %
+%%
+%%   This file is part of the files in the distribution of AIP substyles for REVTeX4.
+%%   Version 4.1 of 9 October 2009.
+%%
+%
+% This is a template for producing documents for use with
+% the REVTEX 4.1 document class and the AIP substyles.
+%
+% Copy this file to another name and then work on that file.
+% That way, you always have this original template file to use.
+
+%\documentclass[aip,graphicx]{revtex4-1}
+%\documentclass[aip,reprint]{revtex4-1}
+
+\documentclass[%
+ aip,
+ jmp,%
+ amsmath,amssymb,
+ %preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+]{revtex4-1}
+
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+%\usepackage{natbib}
+
+<%=@default_packages%>
+
+
+<%=@header%>
+
+
+\begin{document}
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>}
+\affiliation{<%=@first_affiliation%>}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\author{<%=@coauthor_list[i]%>}
+\affiliation{<%=@coauthor_affiliations[i]%>}
+<% end %>
+<% end %>
+<% end %>
+
+\date{\today}% It is always \today, today,
+
+<%= @abstract_begin_end %>
+
+
+%\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
+                             % Classification Scheme.
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+
+\maketitle
+
+
+

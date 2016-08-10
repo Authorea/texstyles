@@ -1,0 +1,7 @@
+---
+name: Lecture Notes in Computer Science (LNCS)
+category: generic
+subcategory: Springer
+citation_style: splncs03
+default_packages:
+  "*": true

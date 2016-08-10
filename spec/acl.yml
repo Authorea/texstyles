@@ -1,0 +1,6 @@
+---
+name: Association for Computational Linguistics (ACL)
+category: computers
+citation_style: acl
+default_packages:
+  "*": true

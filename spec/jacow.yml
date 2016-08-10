@@ -1,0 +1,6 @@
+---
+name: Joint Accelerator Conferences (JACoW)
+category: physics
+citation_style: plain
+default_packages:
+  "*": true

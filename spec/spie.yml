@@ -1,0 +1,6 @@
+---
+name: SPIE Proceedings
+category: other
+citation_style: spiebib
+default_packages:
+  "*": true

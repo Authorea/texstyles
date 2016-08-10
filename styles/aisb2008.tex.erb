@@ -1,0 +1,31 @@
+\documentclass{AISB2008}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{latexsym}
+<%=@default_packages%>
+
+<%=@header%>
+\begin{document}
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\institute{<%=@first_affiliation%>}<%
+  if !@coauthor_list.to_a.empty?
+   for i in (0..@coauthor_list.length-1) %>
+  \and <%=@coauthor_list[i]%>\institute{<%=@coauthor_affiliations[i]%>}
+<% end
+ end %>}
+<% end %>
+
+\maketitle
+
+<% if !@abstract.to_s.empty? %>
+
+\begin{abstract}
+<%=@abstract%>
+\end{abstract}
+
+<% end %>

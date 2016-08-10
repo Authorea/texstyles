@@ -1,0 +1,7 @@
+---
+name: One column
+category: generic
+subcategory: Springer
+citation_style: spmpsci
+default_packages:
+  "*": true

@@ -1,0 +1,7 @@
+---
+name: Science
+category: generic
+subcategory: Frontiers
+citation_style: frontiersinSCNS&ENG
+default_packages:
+  "*": true

@@ -1,0 +1,103 @@
+% The main file for developing the proposal.
+% Variants with different class options are
+% - submit.tex (no draft stuff, no ednotes, no revision information)
+% - public.tex (like submit.tex, but no financials either)
+\newcommand{\classoptions}{submit}
+\providecommand{\unserzusammenfassung}{} % to be orverwritten in header.tex
+\providecommand{\pnacronym}{} % to be orverwritten in header.tex
+\documentclass[RAM,gitinfo\classoptions]{dfgproposal}
+%\addbibresource{../lib/dummy}
+
+<%=@default_packages%>
+<%=@header%>
+
+\WAinstitution[id=affiliation1,acronym={<%=@first_affiliation%>},
+               %url=http://jacobs-university.de,
+               %streetaddress={Campus Ring 1},
+               %townzip={28759 Bremen},
+               %countryshort=D,
+               %country=Germany,
+               %type=University,
+               %logo=jacobs-logo.png,
+               %shortname=Jacobs University
+               ]
+               {<%=@first_affiliation%>}
+\WAperson[id=author1,
+           %personaltitle=Prof. Dr.,
+           %birthdate=13. September 1964,
+           %academictitle=Professor of Computer Science,
+           affiliation=affiliation1,
+           %department=case,
+           privaddress=None of your business,
+           privtel=that neither,
+           %email=,
+           %workaddress={Campus Ring 1, 28757 Bremen},
+           %worktel=+49 421 200 3140,
+           %worktelfax=+49 421 200 3140/493140,
+           %workfax=+49 421 200 493140
+           ]
+           {<%=@first_author%>}
+
+<% if !@coauthor_list.to_a.empty? %>
+  <% for i in (0..@coauthor_list.length-1) %>
+  \WAinstitution[id=affiliation<%=i+2%>,acronym={<%=@coauthor_affiliations[i]%>},
+               %url=http://jacobs-university.de,
+               %streetaddress={Campus Ring 1},
+               %townzip={28759 Bremen},
+               %countryshort=D,
+               %country=Germany,
+               %type=University,
+               %logo=jacobs-logo.png,
+               %shortname=Jacobs University
+               ]
+               {<%=@coauthor_affiliations[i]%>}
+  \WAperson[id=author<%=i+2%>,
+           %personaltitle=Prof. Dr.,
+           %birthdate=13. September 1964,
+           %academictitle=Professor of Computer Science,
+           affiliation=affiliation<%=i+2%>,
+           %department=case,
+           privaddress=None of your business,
+           privtel=that neither,
+           %email=,
+           %workaddress={Campus Ring 1, 28757 Bremen},
+           %worktel=+49 421 200 3140,
+           %worktelfax=+49 421 200 3140/493140,
+           %workfax=+49 421 200 493140
+           ]
+           {<%=@coauthor_list[i]%>}
+  <% end %>
+<% end %>
+
+% Auto-close {proposal}, if needed
+\newbool{InProposalEnvironment}
+\AtBeginEnvironment{proposal}{\booltrue{InProposalEnvironment}}
+\AtEndDocument{\ifbool{InProposalEnvironment}{\end{proposal}}{}}
+
+\begin{document}
+
+\begin{proposal}[PI=author1,site=affiliation1<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>,PI=author<%=i+2%>,site=affiliation<%=i+2%><% end %><%end %>,
+  thema={<%=@long_title%>},
+  acronym=\pnacronym,
+  acrolong=<%=@long_title%>,
+  title=\pnlong,
+  %totalduration=3 years,
+  %since=1. Feb 2009,
+  %start=1. Feb. 2010,
+  %months=24,
+  %pcgRM=36, pcgRAM=36, jacuRM=36, jacuRAM=36,
+  %discipline=Computer Science,
+  %areas=Knowledge Management
+  ]
+
+\begin{Zusammenfassung}
+ \unserzusammenfassung
+\end{Zusammenfassung}
+
+\begin{Summary}
+  %\begin{todo}{copy into the Elan system}
+  %  Summarize the relevant goals of the proposed project in generally intelligible
+  %  terms. Do not use more than 3000 characters, no special characters allowed.
+  %\end{todo}
+  <%= @abstract %>
+\end{Summary}

@@ -1,0 +1,6 @@
+---
+name: Geophysics
+category: geo
+citation_style: seg
+default_packages:
+  "*": true

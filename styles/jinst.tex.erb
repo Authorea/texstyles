@@ -1,0 +1,46 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+
+\usepackage{jinstpub} % for details on the use of the package, please
+                     % see the JINST-author-manual
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\title{<%=@long_title%>}
+
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[a]{<%=@first_author%>}
+\affiliation[a]{<%=@first_affiliation%>}
+<% end %>
+
+\abstract{<%= @abstract %>}
+
+%\keywords{Only keywords from JINST's keywords list please}
+
+
+%\arxivnumber{1234.56789} % only if you have one
+
+
+% \collaboration{\includegraphics[height=17mm]{example-image}\\[6pt]
+%   XXX collaboration}
+% or
+%\collaboration[c]{on behalf of XXX collaboration}
+
+
+% if you write for a special issue this may be useful
+%\proceeding{N$^{\text{th}}$ Workshop on X\\
+%  when\\
+%  where}
+
+
+
+\begin{document}
+\maketitle
+\flushbottom
+

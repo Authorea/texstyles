@@ -1,0 +1,7 @@
+---
+name: Computer Society Journal
+category: computers
+subcategory: IEEE Transactions
+citation_style: IEEEtran
+default_packages:
+  "*": true

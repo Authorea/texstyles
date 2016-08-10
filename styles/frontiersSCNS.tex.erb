@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is just a template to use when submitting manuscripts to Frontiers, it is not mandatory to use frontiers.cls nor frontiers.tex  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass{frontiersENG} % for Engineering articles
+\documentclass{frontiersSCNS} % for Science articles
+%\documentclass{frontiersMED} % for Medicine articles
+
+<%=@default_packages%>
+
+
+\usepackage{url,lineno}
+\linenumbers
+
+<%=@header%>
+
+% Leave a blank line between paragraphs in stead of using \\
+
+\copyrightyear{}
+\pubyear{}
+
+\def\journal{Science}%%% write here for which journal %%%
+\def\DOI{}
+\def\articleType{Research Article}
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\firstAuthorLast{<%=@first_author%> <% if !@coauthor_list.to_a.empty? %>{et~al.}<% end %>} %use et al only if is more than 1 author
+\def\Authors{<%=@first_author%>\,$^{1,*}$ <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+, <%=@coauthor_list[i]%>\,$^{<%=i+2%>}$<% end %><% end %>}
+
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+\def\Address{$^{1}$<%=@first_affiliation%> \\
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+$^{<%=i+2%>}$ <%=@coauthor_affiliations[i]%> \\ <% end %><% end %>  }
+% The Corresponding Author should be marked with an asterisk
+% Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
+\def\corrAuthor{<%=@first_author%>}
+\def\corrAddress{<%=@first_affiliation%>}
+\def\corrEmail{email@uni.edu}
+
+% \color{FrontiersColor} Is the color used in the Journal name, in the title, and the names of the sections
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+
+\title[<%=@short_title%>]{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[\firstAuthorLast ]{\Authors}
+<% end %>
+\address{}
+\correspondance{}
+\extraAuth{}% If there are more than 1 additional author, comment this line and uncomment the next one
+%\extraAuth{corresponding Author2 \\ Laboratory X2, Institute X2, Department X2, Organization X2, Street X2, City X2 , State XX2 (only USA, Canada and Australia), Zip Code2, X2 Country X2, email2@uni2.edu}
+%\topic{Research Topic}
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+
+%\bibliographystyle{frontiersinSCNS&ENG} % for Science and Engineering articles
+%\bibliographystyle{frontiersinMED} % for Medicine articles
+

@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                File: OLpagelength.tex               %
+%               Date: Nov. 15, 2010                   %
+%                                                     %
+%    For assistance, contact Joseph Richardson,       %
+%    jricha@osa.org                                   %
+%                                                     %
+%          LaTeX template and instructions for        %
+%          length check and submission of OSA         %
+%              Optics Letters manuscripts             %
+%                                                     %
+%                                                     %
+% \documentclass[10pt,letterpaper,twocolumn]{article} %
+% \usepackage{ol2}                                    %
+%                                                     %
+% (c) 2009 Optical Society of America                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,letterpaper,twocolumn]{article} %% two column, final layout
+
+<%=@default_packages%>
+\hypersetup{draft,implicit=false}
+\usepackage{ol2}
+%\usepackage{amsmath}
+
+<%=@header%>
+
+\begin{document}
+
+\twocolumn[ %% activate for two-column option
+
+\title{<%=@long_title%>}
+
+%% For REVTeX it is possible to automate superscript and e-mail callouts with the superscriptaddress option; see REVTeX4 documentation.
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>$^{1}$<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^{<%=i+2%>}$<% end %><% end %>}
+<% end %>
+
+\address{
+$^{1}$<%=@first_affiliation%>\\
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>\\
+$^{<%=i+2%>}$<%=@coauthor_affiliations[i]%> \\<% end %><% end %>
+}
+
+<%= @abstract_begin_end %>
+
+
+%\ocis{000.0000, 999.9999.}
+
+ ] %% activate for two-column option
+

@@ -1,0 +1,6 @@
+---
+name: Institute of Physics (IOP)
+category: physics
+citation_style: iopart-num
+default_packages:
+  "*": true

@@ -1,0 +1,56 @@
+\documentclass[10pt,a4paper]{article}
+
+<%=@default_packages%>
+\usepackage[usenames,dvipsnames]{xcolor}
+\hypersetup{colorlinks=true,linkcolor=BrickRed,citecolor=OliveGreen,urlcolor=MidnightBlue}
+
+% Use doublespacing
+\usepackage{setspace}
+
+%\usepackage{babel}
+\doublespacing
+
+% Text layout
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm
+\textheight 21cm
+
+% Figure labels
+\usepackage[labelfont=bf,labelsep=endash,justification=raggedright]{caption}
+
+% Leave date blank
+\date{}
+
+<%=@header%>
+
+
+\begin{document}
+% \linenumbers
+
+\begin{flushleft}
+{\LARGE
+\textbf{<%=@long_title%>}
+}
+% Insert Author names, affiliations and corresponding author email.
+\\
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+<%=@first_author%>$^{1}$<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^{<%=i+2%>}$<% end %><% end %>
+\\
+{\bf 1} <%=@first_affiliation%>
+\\
+
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>
+{\bf <%=i+2%>} <%=@coauthor_affiliations[i]%>
+\\<% end %><% end %>
+<% end %>
+\end{flushleft}
+
+<% if @abstract and !@abstract.blank? %>
+\section*{Abstract}
+<%=@abstract%>
+<% end %>
+

@@ -1,0 +1,6 @@
+---
+name: Journal of Instrumentation (JINST)
+category: physics
+citation_style: spphys
+default_packages:
+  "*": true

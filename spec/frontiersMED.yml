@@ -1,0 +1,7 @@
+---
+name: Medicine
+category: generic
+subcategory: Frontiers
+citation_style: frontiersinMED
+default_packages:
+  "*": true

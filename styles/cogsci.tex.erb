@@ -1,0 +1,43 @@
+%
+% Annual Cognitive Science Conference
+% Sample LaTeX Paper -- Proceedings Format
+%
+
+% Original : Ashwin Ram (ashwin@cc.gatech.edu)       04/01/1994
+% Modified : Johanna Moore (jmoore@cs.pitt.edu)      03/17/1995
+% Modified : David Noelle (noelle@ucsd.edu)          03/15/1996
+% Modified : Pat Langley (langley@cs.stanford.edu)   01/26/1997
+% Latex2e corrections by Ramin Charles Nakisa        01/28/1997
+% Modified : Tina Eliassi-Rad (eliassi@cs.wisc.edu)  01/31/1998
+% Modified : Trisha Yannuzzi (trisha@ircs.upenn.edu) 12/28/1999 (in process)
+% Modified : Mary Ellen Foster (M.E.Foster@ed.ac.uk) 12/11/2000
+% Modified : Ken Forbus                              01/23/2004
+% Modified : Eli M. Silk (esilk@pitt.edu)            05/24/2005
+% Modified : Niels Taatgen (taatgen@cmu.edu)         10/24/2006
+% Modified : David Noelle (dnoelle@ucmerced.edu)     11/19/2014
+
+%% Change "letterpaper" in the following line to "a4paper" if you must.
+
+\documentclass[10pt,letterpaper]{article}
+<%=@default_packages%>
+
+\usepackage{cogsci}
+\usepackage{pslatex}
+\usepackage{apacite}
+
+<%=@header%>
+
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{{\large \bf <%=@first_author%>}\\ <%=@first_affiliation%> <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> \AND {\large \bf <%=@coauthor_list[i]%>}\\ <%=@coauthor_affiliations[i]%><% end %><% end %>}
+<% end %>
+\begin{document}
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+
+

@@ -1,0 +1,6 @@
+---
+name: U. Iowa
+category: thesis
+citation_style: plain
+default_packages:
+  "*": true

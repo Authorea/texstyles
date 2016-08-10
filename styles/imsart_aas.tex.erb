@@ -1,0 +1,82 @@
+% Template for the submission to:
+%   The Annals of Probability           [aop]
+%   The Annals of Applied Probability   [aap]
+%   The Annals of Statistics            [aos]
+%   The Annals of Applied Statistics    [aoas]
+%   Stochastic Systems                  [ssy]
+%
+%Author: In this template, the places where you need to add information
+%        (or delete line) are indicated by {???}.  Mostly the information
+%        required is obvious, but some explanations are given in lines starting
+%Author:
+%All other lines should be ignored.  After editing, there should be
+%no instances of ??? after this line.
+
+% use option [preprint] to remove info line at bottom
+% journal options: aop,aap,aos,aoas,ssy
+% natbib option: authoryear
+\documentclass[aoas,preprint]{imsart}
+
+<%=@default_packages%>
+
+%\usepackage{amsthm,amsmath,natbib}
+%\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+
+% provide arXiv number if available:
+%\arxiv{arXiv:0000.0000}
+
+<%=@header%>
+
+% put your definitions there:
+%\startlocaldefs
+%\endlocaldefs
+
+\begin{document}
+
+\begin{frontmatter}
+
+% "Title of the paper"
+\title{<%=@long_title%>}
+\runtitle{<%=@short_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\thanksref{1}}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\and \author{<%=@coauthor_list[i]%>\thanksref{<%=i+2%>}}<% end %><% end %>
+
+\runauthor{<%=@first_author%> <% if !@coauthor_list.to_a.empty? %>{et~al.}<% end %>}
+
+
+\affiliation{<%=@first_affiliation%>\thanksmark{1}}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\affiliation{<%=@coauthor_affiliations[i]%>\thanksmark{<%=i+2%>}}
+<% end %><% end %>
+<% end %>
+
+<%= @abstract_begin_end %>
+
+
+%\begin{keyword}[class=MSC]
+%\kwd[Primary ]{}
+%\kwd{}
+%\kwd[; secondary ]{}
+%\end{keyword}
+
+%\begin{keyword}
+%\kwd{}
+%\kwd{}
+%\end{keyword}
+
+\end{frontmatter}
+
+% AOS,AOAS: If there are supplements please fill:
+%\begin{supplement}[id=suppA]
+%  \sname{Supplement A}
+%  \stitle{Title}
+%  \slink[doi]{10.1214/00-AOASXXXXSUPP}
+%  \sdatatype{.pdf}"
+%  \sdescription{Some text}
+%\end{supplement}
+
+

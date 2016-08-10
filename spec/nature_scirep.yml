@@ -1,0 +1,7 @@
+---
+name: Scientific Reports
+category: generic
+subcategory: Nature
+citation_style: 
+default_packages:
+  "*": true

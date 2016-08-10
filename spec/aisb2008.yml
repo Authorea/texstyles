@@ -1,0 +1,6 @@
+---
+name: AISB
+category: computers
+citation_style: AISB2008
+default_packages:
+  "*": true

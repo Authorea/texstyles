@@ -1,0 +1,75 @@
+%  article.tex (Version 1.00, released 1 October 2013)
+%  LaTeX source file to demonstrate formatting for manuscripts
+%  to be submitted to SPIE journals
+%  based on the class file spieman.cls, which requires
+%  the following standard packages:  times.sty, float.sty,
+%  ifthen.sty, cite.sty, color.sty, setspace.sty
+%
+%  Special instructions are included in this file after the
+%  symbol %>>>>
+%  Numerous commands are commented out, but included to show how
+%  to effect various options, for example, to print page numbers, etc.
+%  This LaTeX source file is composed for LaTeX2e.
+
+%  The following commands have been added in the SPIE class
+%  file (spieman.cls) and may not be understood in other classes:
+%  \affiliations{}, \sup{},\supit{}, \authorinfo{}, \keywords{},
+%  \linkable and \video
+%  The bibliography style file is called spiejour.bst
+%  This article.tex file needs the following image files:
+%  mcr3b.eps
+%  fig2.eps
+%  satellite.eps
+
+\documentclass[12pt]{spieman}  %>>> 12pt font mandatory; use this for US letter paper
+%%\documentclass[a4paper,12pt]{spieman}  %>>> use this instead for A4 paper
+%%\documentclass[nocompress,12pt]{spieman}  %>>> to avoid compression of citations
+%% \addtolength{\voffset}{9mm}   %>>> moves text field down
+%  The following command loads a graphics package to include images
+%  in the document. It may be necessary to specify a DVI driver option,
+%  for example, [dvips], but that may be inappropriate for some LaTeX installations.
+%%\usepackage{amsmath}  %>>> for AMS math formatting,
+%  including bold Greek symbols
+\usepackage[]{graphicx}
+\usepackage{setspace}
+%\usepackage{tocloft}
+
+<%=@default_packages%>
+
+\title{<%=@long_title%>}
+
+%>>>> The author is responsible for formatting the
+%  author list and their affiliations.  Use \\ to force linebreaks.
+%  The correspondence between each author and his/her address
+%  can be indicated with a superscript,
+%  which is easily obtained with \supscr{}.
+%>>>> After the abstract, the author must include
+%  a list of keywords and contact information for the corresponding author.
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>,\supscr{1}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %><%=@coauthor_list[i]%>,\supscr{<%=i+2%>}<% end %><% end %>}
+
+\affiliation{\supscrsm{1}<%=@first_affiliation%>\\
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>\supscrsm{<%=i+2%>}<%=@coauthor_affiliations[i]%><% end %><% end %>}
+<% end %>
+
+<%=@header%>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\cftdotsep}{\cftnodots}
+
+\begin{document}
+\maketitle
+
+<%= @abstract_begin_end %>
+
+%>>>> Include a list of up to six keywords after the abstract
+%\keywords{optics, photonics, light, lasers, journal manuscripts, LaTeX template}
+
+%>>>> Include contact information for corresponding author
+%{\noindent \footnotesize{\bf Address all correspondence to}: First author, University Name, Faculty Group, Department, Street Address, City, Country, Postal Code; Tel: +1 555-555-5555; Fax: +1 555-555-5556; E-mail:  \linkable{myemail@university.edu} }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\doublespacing

@@ -1,0 +1,6 @@
+---
+name: Journal of High Energy Physics (JHEP)
+category: physics
+citation_style: JHEP
+default_packages:
+  "*": true

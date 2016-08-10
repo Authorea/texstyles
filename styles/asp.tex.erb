@@ -1,0 +1,26 @@
+% This is the aspauthor.tex LaTeX file
+% Copyright 2010, Astronomical Society of the Pacific Conference Series
+
+\documentclass[11pt,twoside]{article}
+<%=@default_packages%>
+\usepackage{asp2010}
+
+<%=@header%>
+
+\resetcounters
+
+\markboth{<%=@first_author%>}{<%=@short_title%>}
+
+\begin{document}
+
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>$^1$<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^<%=i+2%>$<% end %><% end %>
+\affil{$^1$<%=@first_affiliation%>}
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>
+\affil{$^<%=i+2%>$<%=@coauthor_affiliations[i]%>}<% end %><% end %>}
+<% end %>
+<%= @abstract_begin_end %>
+

@@ -1,0 +1,149 @@
+%----------------------- Thesis Master Document -----------------------------------%
+%                                                                                  %
+% Hacked together by Thomas Griffiths 2014-03-01 tmg994(at)uowmail.edu.au          %
+% If you get stuck read my comments here and in the preamble (thesispreamble.tex). %
+% Hopefully they can help you find your answers will be I highly reccomend making  %
+% friends with Google and http://tex.stackexchange.com/, the truth is out there.   %
+%                                                                                  %
+%----------------------------------------------------------------------------------%
+
+%------------------------ Preamble and bibliography resources
+\documentclass[12pt,oneside]{book}
+
+\usepackage{geometry}
+    \geometry{a4paper,inner=4cm, outer=2cm, top=3cm, bottom=2cm}
+    % Dimensions from UOW thesis guidelines.
+    \pdfpagewidth=\paperwidth
+    \pdfpageheight=\paperheight
+    % This acts as a failsafe to ensure things aren't stretched or moved when it's finally printed as a PDF.
+
+%\usepackage[parfill]{parskip}
+% Activate to begin paragraphs with an empty (return) line, comment out the indent below if you chose the return line option.
+
+\setlength{\parindent}{4ex} % Sets the length of the paragraph indent. Current setup has a an indent. Disable this if you activate the return line above.
+
+\usepackage{setspace}
+% Double or one and a half spacing.
+
+\usepackage{graphicx}
+    \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+% Graphics. Remove me and you won't have any figures, and that would be very boring.
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+% Adds the ability to make coloured text and lines throughout the document. See documentation for xcolor.
+
+%-------------------- Tables, figures and captions
+\usepackage[font={small},labelfont={bf},margin=4ex]{caption}
+% Makes bold labeled and smaller font captions. Must be loaded before the longtable package to avoid conflicts!
+
+\usepackage{longtable}
+% Long tables (more than one page). Different headers and footers for beginning and end pages, etc.
+
+\usepackage{afterpage}
+% Make a longtable start on the next clear page, but fills the previous one with text first (no random gaps in the text-from long tables anymore! Man, the day I discovered this...)
+
+\usepackage{booktabs}
+% Nice looking tables and lines in tables
+
+\usepackage{multirow}
+% Entries in tables over multiple rows
+
+\usepackage{lscape}
+% Pages in landscape
+
+\usepackage{pdflscape}
+% Landscape pages also rotated in the pdf
+
+\usepackage{wrapfig}
+% Allows figures that don't take up the entire width of the page, wrapping the text around the figure
+
+%\usepackage[position=top,singlelinecheck=false,captionskip=4pt]{subfig}
+% Multiple figures in an individual figure. Fig. 1 a, b, c, etc. each with, or without, it's own individual caption, and with a global caption for all sub figures.
+
+%-------------------- Special symbols and fonts
+\usepackage{amssymb}
+% Maths symbols
+
+%-------------------- Document sections, headers, footers, and bibliography
+\usepackage{fancyhdr}
+% for creating different headers and footers
+
+%-------------------- Bibliography
+%\usepackage[backend=biber,articletitle=true,style=chem-rsc,doi=false]{biblatex}
+% This is the package that lets you create a bibliography. I recommend reading the biblatex documentation to understand all the options i've specified here. BibLaTeX was created to replace BibTeX. It has lots of extra fields and options. I'm also using the biber backend here rather than the default, it copes with unicode and so can deal with accented characters easily.
+
+% Currently this is set up to use RSC style references with article titles displayed.
+
+% Traditionally you would use BibTeX, a special build of TeX, the newer biblatex package is a more powerful bibliograpy management tool for LaTeX. You can make multiple chapter based bibliographies, footnote bibliographes, sort your references by date, author, order cited, essentially by any bit of citation data you happen to have. You can also have a seperate library with a differnet format for say books and articles. Or if you're a PhD student, the thesis references and your publications.
+
+\usepackage{natbib}
+    \setcitestyle{citesep={;}, aysep={,}}
+    % places citations in square brackets to helps to distinguish between powers and citations
+%This is the old natbib package that meshes with bibtex (rather than using the newer biblatex). It's here mainly for legacy purposes. Try to shift to biblatex if you can, it is cleaner in it's implementation and creating a custom citation style is easier then with bibtex. Some online tools don't yet support biblatex, so you'll need to use this method.
+
+\usepackage[unicode=true,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,breaklinks=true]{hyperref}
+% The hyperref package allows you to have clickable links in your pdf. It also allows you to have the mailto link associated with your name. It can be  a bit finicky, so load it last.
+
+%-------------------- Command renewals, New commands etc.
+\renewcommand{\thefootnote}{\alph{footnote}}
+%letters for footnotes instead of numbers to avoid confusion with references.
+
+
+\usepackage[]{uowthesistitlepage}
+% Creates the title page in accordance with UOW guidelines, includes the definition of the extra fields in \maketitle
+
+% This is where you load your bibliography file. If you use change to BibTeX and natbib in the pramble comment it out.
+%\addbibresource{your_bibliography.bib}
+
+<%=@header%>
+
+%------------------------ Main Document --------------------------
+\begin{document}
+    \onehalfspace
+
+%-------------- Information For The Title Page
+% Title page info (see uowthesistitlepage package)
+    \title{<%=@long_title%>}
+    <% if !@alternative_author_string.to_s.empty? %>
+      <%= @alternative_author_string %>
+    <% else %>
+    \author{<%=@first_author%>}
+    <% end %>
+    % Full name, and any degrees held.
+
+    \date{January 1901}
+    % Month Year, alternatively use the \today macro for Month dd, yyyy.
+
+    \degree{Your Degree}
+    % Write it in full: e.g. Bachelor of Science Medicinal Chemistry Honours
+
+    \supervisor[2]{Dr. J. Bloggs \& Professor J. Citizen}
+    % The optional argument (default 1) in square brackets is the number of supervisors. In the Curly braces list your supervisor(s) seperated by commas.
+
+    %\cosupervisor[1]{Dr. C. O. Supervisor}
+    % The same as the supervisor command above. This command is optional.
+
+    \school{Your School}
+    % e.g Chemistry
+
+%-------------- Front Matter
+    \frontmatter
+    \maketitle
+    \declaration
+
+    \phantomsection\addcontentsline{toc}{chapter}{Abstract}
+    \chapter*{Abstract} % Starred chapter=chapter with no number.
+    <%=@abstract%>
+
+    %\include{frontmatter/abstract}
+    %\include{frontmatter/acknowledgments}
+
+%-------------- Table of contents
+    \cleardoublepage
+    \phantomsection \pdfbookmark[0]{Contents}{Contents}
+    \tableofcontents
+    % These \phantomsection are to ensure that the hyperref package hyperlinks to the correct page in the electronic pdf. If you turn hyperref off they don't do anything so they can just stay here.
+
+%-------------- Chapters
+    \cleardoublepage
+    \mainmatter

@@ -1,0 +1,6 @@
+---
+name: IRAM Telescopes
+category: grants
+citation_style: apj
+default_packages:
+  "*": true

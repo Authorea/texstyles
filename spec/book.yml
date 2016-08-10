@@ -1,0 +1,6 @@
+---
+name: Book
+category: generic
+citation_style: plain
+default_packages:
+  "*": true

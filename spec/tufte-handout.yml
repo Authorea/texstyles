@@ -1,0 +1,6 @@
+---
+name: Tufte Handout
+category: generic
+citation_style: plainnat
+default_packages:
+  "*": true

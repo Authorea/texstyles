@@ -1,0 +1,6 @@
+---
+name: APA Style
+category: generic
+citation_style: apacite
+default_packages:
+  "*": true

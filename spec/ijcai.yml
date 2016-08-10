@@ -1,0 +1,6 @@
+---
+name: Joint Conference on Artificial Intelligence (IJCAI)
+category: computers
+citation_style: named
+default_packages:
+  "*": true

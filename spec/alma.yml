@@ -1,0 +1,6 @@
+---
+name: ALMA
+category: grants
+citation_style: abbrv
+default_packages:
+  "*": true

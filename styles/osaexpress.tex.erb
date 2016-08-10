@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                File: OpEx_style.tex                 %
+%                  Date: Sept. 2, 2009                %
+%                                                     %
+%           LaTeX template file for use with          %
+%           OSA's journal Optics Express              %
+%                                                     %
+%  send comments to Jennifer Mayfield, jmayfi@osa.org %
+%                                                     %
+% This file requires style file, opex3.sty, under     %
+%              the LaTeX article class                %
+%                                                     %
+%   \documentclass[10pt,letterpaper]{article}         %
+%   \usepackage{opex3}                                %
+%                                                     %
+% Note that our online submission system does not     %
+% currently process PDFLaTeX; if PDFLaTeX must be     %
+% used, pls. contact OpEx staff, and we will process  %
+% manually                                            %
+%                                                     %
+%                                                     %
+%       (c) 2009 Optical Society of America           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage{opex3}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+
+%%%%%%%%%%%%%%%%%%%%%%% begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%% NOTE: TITLE PAGE & TOC NOT USED FOR MANUSCRIPT SUBMISSIONS %%
+\title{<%=@long_title%>}
+
+\vskip4pc
+
+\tableofcontents
+\clearpage
+%% NO TITLE PAGE FOR OPEX SUBMISSIONS %%
+
+%% START HERE
+%%%%%%%%%%%%%%%%%% title page information %%%%%%%%%%%%%%%%%%
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>$^{1}$<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^{<%=i+2%>}$<% end %><% end %>}
+<% end %>
+
+\address{
+$^{1}$<%=@first_affiliation%>\\
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>\\
+$^{<%=i+2%>}$<%=@coauthor_affiliations[i]%> \\<% end %><% end %>
+}
+
+%\email{opex@osa.org} %% email address is required
+
+% \homepage{http:...} %% author's URL, if desired
+
+%%%%%%%%%%%%%%%%%%% abstract and OCIS codes %%%%%%%%%%%%%%%%
+%% [use \begin{abstract*}...\end{abstract*} if exempt from copyright]
+
+<%= @abstract_begin_end %>
+
+%\ocis{(000.0000) General.} % REPLACE WITH CORRECT OCIS CODES FOR YOUR ARTICLE
+
+

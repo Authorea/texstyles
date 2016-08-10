@@ -1,0 +1,7 @@
+---
+name: Reprint
+category: physics
+subcategory: APS - Physical Review Letters, Physical Review X
+citation_style: apsrev4-1
+default_packages:
+  "*": true

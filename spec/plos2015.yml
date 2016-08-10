@@ -1,0 +1,7 @@
+---
+name: '2015'
+category: generic
+subcategory: PLoS
+citation_style: plos2015
+default_packages:
+  "*": true

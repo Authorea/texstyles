@@ -1,0 +1,6 @@
+---
+name: American Institute of Aeronautics and Astronautics (AIAA)
+category: other
+citation_style: aiaa
+default_packages:
+  "*": true

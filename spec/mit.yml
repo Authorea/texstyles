@@ -1,0 +1,6 @@
+---
+name: MIT
+category: thesis
+citation_style: plain
+default_packages:
+  "*": true

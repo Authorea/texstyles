@@ -1,0 +1,6 @@
+---
+name: American Journal of Political Science - AJPS
+category: other
+citation_style: apsr
+default_packages:
+  "*": true

@@ -1,0 +1,7 @@
+---
+name: Monograph
+category: generic
+subcategory: Springer
+citation_style: spbasic
+default_packages:
+  "*": true

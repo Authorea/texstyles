@@ -1,0 +1,34 @@
+\documentclass{bioinfo}
+\copyrightyear{2005}
+\pubyear{2005}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\begin{document}
+
+\firstpage{1}
+
+\title[<%=@long_title%>]{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[<%=@first_author%> \textit{et~al}]{<%=@first_author%>\,$^{1}$ <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> , <%=@coauthor_list[i]%>\,$^{<%=i+2%>}$<% end %><% end %>}
+
+
+\address{$^{1}$<%=@first_affiliation%>\\<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+$^{<%=i+2%>}$<%=@coauthor_list[i]%><% end %><% end %>}
+<% end %>
+
+\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+
+\editor{Associate Editor: XXXXXXX}
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+
+
+

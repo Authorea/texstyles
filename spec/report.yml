@@ -1,0 +1,6 @@
+---
+name: Report
+category: generic
+citation_style: plain
+default_packages:
+  "*": true

@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a  template file for the LaTeX package SVJour3 width change file svepjc3.clo
+% for Springer journal:
+% The European Physical Journal C
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First comes an example EPS file -- just ignore it and
+% proceed on the \documentclass line
+% your LaTeX will extract the file if required
+
+
+\documentclass[twocolumn,epjc3]{svjour3}
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\RequirePackage{graphicx}
+%
+% \RequirePackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\RequirePackage{latexsym}
+%\RequirePackage[numbers,sort&compress]{natbib}
+%\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue,linkcolor=blue]{hyperref}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+
+<%=@header%>
+
+
+\journalname{Eur. Phys. J. C}
+%
+\begin{document}
+
+\title{<%=@long_title%>}
+
+\titlerunning{<%=@short_title%>}        % if too long for running head
+
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\thanksref{1}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\and <%=@coauthor_list[i]%>\thanksref{<%=i+2%>}<% end %><% end %>}
+
+\institute{<%=@first_affiliation%>\label{1}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\and <%=@coauthor_affiliations[i]%>\label{<%=i+2%>}
+<% end %><% end %>}
+<% end %>
+
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+% BibTeX users please use one of
+%\bibliographystyle{spbasic}      % basic style, author-year citations
+%\bibliographystyle{spmpsci}      % mathematics and physical sciences
+%\bibliographystyle{spphys}       % APS-like style for physics
+%\bibliography{}   % name your BibTeX data base
+

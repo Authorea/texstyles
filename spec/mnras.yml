@@ -1,0 +1,6 @@
+---
+name: Monthly Notices (MNRAS)
+category: physics
+citation_style: mnras
+default_packages:
+  "*": true

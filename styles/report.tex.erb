@@ -1,0 +1,17 @@
+\documentclass{report}
+\usepackage{fullpage}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\\ <%=@first_affiliation%> <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> \and <%=@coauthor_list[i]%>\\ <%=@coauthor_affiliations[i]%><% end %><% end %>}
+<% end %>
+
+\title{<%=@long_title%>}
+
+\begin{document}
+\maketitle

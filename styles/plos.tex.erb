@@ -1,0 +1,69 @@
+% Template for PLoS
+% Version 1.0 January 2009
+%
+% To compile to pdf, run:
+% latex plos.template
+% bibtex plos.template
+% latex plos.template
+% latex plos.template
+% dvipdf plos.template
+
+\documentclass[10pt]{article}
+
+<%=@default_packages%>
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use doublespacing - comment out for single spacing
+%\usepackage{setspace}
+%\doublespacing
+
+<%=@header%>
+
+% Text layout
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm
+\textheight 21cm
+
+% Bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+
+% Leave date blank
+\date{}
+
+\pagestyle{myheadings}
+\begin{document}
+
+% Title must be 150 characters or less
+\begin{flushleft}
+{\LARGE
+\textbf{<%=@long_title%>}
+}
+% Insert Author names, affiliations and corresponding author email.
+\\
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+<%=@first_author%><% if !@first_affiliation.to_s.empty? %>$^{1}$<% end %>
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^{<%=i+2%>}$<% end %><% end %>
+\\
+<% if !@first_affiliation.to_s.empty? %>
+{\bf 1} <%=@first_affiliation%>\\
+<% end %>
+
+<% @coauthor_affiliations.to_a.each_with_index do |affil, index| %>
+{\bf <%=index+1%>} <%= affil %> \\
+<% end %>
+<% end %>
+\end{flushleft}
+
+% Please keep the abstract between 250 and 300 words
+
+<% if @abstract and !@abstract.blank? %>
+\section*{Abstract}
+<%=@abstract%>
+<% end %>

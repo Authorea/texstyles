@@ -1,0 +1,6 @@
+---
+name: European Geosciences Union (EGU)
+category: geo
+citation_style: copernicus
+default_packages:
+  "*": true

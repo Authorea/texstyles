@@ -1,0 +1,53 @@
+% ---- ETD Document Class and Useful Packages ---- %
+\documentclass{ucetd}
+\usepackage{subfigure,epsfig,amsfonts}
+%\usepackage{natbib}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+
+<%=@default_packages%>
+<%=@header%>
+
+%% Use these commands to set biographic information for the title page:
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>}
+<% end %>
+\department{Thesis Department}
+\division{Thesis Division}
+\degree{Type of Degree}
+\date{Graduation Date}
+
+%% Use these commands to set a dedication and epigraph text
+%\dedication{Dedication Text}
+%\epigraph{Epigraph Text}
+
+
+\begin{document}
+%% Basic setup commands
+% If you don't want a title page comment out the next line and uncomment the line after it:
+\maketitle
+%\omittitle
+
+% These lines can be commented out to disable the copyright/dedication/epigraph pages
+%\makecopyright
+%\makededication
+%\makeepigraph
+
+
+%% Make the various tables of contents
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+%\acknowledgments
+% Enter Acknowledgements here
+
+\abstract
+<%=@abstract%>
+
+\mainmatter
+

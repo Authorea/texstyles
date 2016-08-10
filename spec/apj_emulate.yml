@@ -1,0 +1,7 @@
+---
+name: Emulate ApJ
+category: physics
+subcategory: The Astrophysical Journal (ApJ)
+citation_style: apj
+default_packages:
+  "*": true

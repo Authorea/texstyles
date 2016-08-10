@@ -1,0 +1,6 @@
+---
+name: International Conference on Learning Representations (ICLR)
+category: computers
+citation_style: iclr2015
+default_packages:
+  "*": true

@@ -1,0 +1,174 @@
+%%    TEMPLATE for articles submitted to the full-tex econf proceedings
+%%
+%%
+%%     Please do not remove lines commented out with %+
+%%           these are for the editors' use.
+%%
+%%     Questions?  Send email to :  mpeskin@slac.stanford.edu
+%%
+
+\documentclass[12pt]{article}
+<%= @default_packages %>
+\usepackage{epsfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Do not change these:
+\textwidth=6.0in  \textheight=8.25in
+
+%%  Adjust these for your printer:
+\leftmargin=-0.3in   \topmargin=-0.20in
+
+
+
+
+%%%  useful macros for econf proceedings articles:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  basic formatting macros:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  single-line equations:
+
+\def\beq{\begin{equation}}
+\def\eeq#1{\label{#1}\end{equation}}
+\def\eeqn{\end{equation}}
+
+%%  multiple-line equations  (use \CR as the carriage return):
+
+\def\beqa{\begin{eqnarray}}
+\def\eeqa#1{\label{#1}\end{eqnarray}}
+\def\eeqan{\end{eqnarray}}
+\def\CR{\nonumber \\ }
+
+%%  reference to an equation number:
+
+\def\leqn#1{(\ref{#1})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  bibliographic entries   (use this or the SPIRES LaTeX output)
+
+%%   Journal or bibliographic formatting macros are obsolete!
+%%   The SLAC/SPIRES database supplies properly formatted citations;
+%%      click on  LaTeX(US) or LaTeX(EU)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  sizing and bars
+
+\def\st{\scriptstyle}
+\def\sst{\scriptscriptstyle}
+
+\def\overbar#1{\overline{#1}}
+\let\littlebar=\bar
+\let\bar=\overbar
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  text-mode macros:
+
+\def\etal{{\it et al.}}
+\def\ie{{\it i.e.}}
+\def\eg{{\it e.g.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  expectation values:
+
+\def\VEV#1{\left\langle{ #1} \right\rangle}
+\def\bra#1{\left\langle{ #1} \right|}
+\def\ket#1{\left| {#1} \right\rangle}
+\def\vev#1{\langle #1 \rangle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  caligraphic letters (for matrix elements, luminosity, etc.)
+
+\def\D{{\cal D}}
+\def\L{{\cal L}}
+\def\M{{\cal M}}
+\def\O{{\cal O}}
+\def\W{{\cal W}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  matrix operations and fractions:
+
+\def\One{{\bf 1}}
+\def\hc{{\mbox{\rm h.c.}}}
+\def\tr{{\mbox{\rm tr}}}
+\def\half{\frac{1}{2}}
+\def\thalf{\frac{3}{2}}
+\def\third{\frac{1}{3}}
+\def\tthird{\frac{2}{3}}
+
+\def\Dslash{\not{\hbox{\kern-4pt $D$}}}
+\def\dslash{\not{\hbox{\kern-2pt $\del$}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  high-energy physics terminology:
+
+\def\Pl{{\mbox{\scriptsize Pl}}}
+\def\eff{{\mbox{\scriptsize eff}}}
+\def\CM{{\mbox{\scriptsize CM}}}
+\def\BR{\mbox{\rm BR}}
+\def\ee{e^+e^-}
+\def\sstw{\sin^2\theta_w}
+\def\cstw{\cos^2\theta_w}
+\def\mz{m_Z}
+\def\gz{\Gamma_Z}
+\def\mw{m_W}
+\def\mt{m_t}
+\def\gt{\Gamma_t}
+\def\mh{m_h}
+\def\gmu{G_\mu}
+\def\GF{G_F}
+\def\alphas{\alpha_s}
+\def\msb{{\bar{\ssstyle M \kern -1pt S}}}
+\def\lmsb{\Lambda_{\msb}}
+\def\ELER{e^-_Le^+_R}
+\def\EREL{e^-_Re^+_L}
+\def\ELEL{e^-_Le^+_L}
+\def\ERER{e^-_Re^+_R}
+\def\eps{\epsilon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  supersymmetry:
+
+\def\ch#1{\widetilde\chi^+_{#1}}
+\def\chm#1{\widetilde\chi^-_{#1}}
+\def\neu#1{\widetilde\chi^0_{#1}}
+\def\s#1{\widetilde{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\def\Title#1{\begin{center} {\Large {\bf #1} } \end{center}}
+
+\begin{document}
+
+
+\Title{<%=@long_title%>}
+
+\bigskip\bigskip
+
+%+\addtocontents{toc}{{\it D. Reggiano}}
+%+\label{ReggianoStart}
+
+\begin{raggedright}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+{\it <%=@first_author%>\\
+<%=@first_affiliation%>}
+\bigskip\bigskip
+
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+{\it <%=@coauthor_list[i]%>\\
+<%=@coauthor_affiliations[i]%> }
+\bigskip\bigskip
+<% end %><% end %>
+<% end %>
+\end{raggedright}
+

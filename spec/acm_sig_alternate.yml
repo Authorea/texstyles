@@ -1,0 +1,7 @@
+---
+name: SIG Alternate
+category: computers
+subcategory: ACM
+citation_style: abbrv
+default_packages:
+  "*": true

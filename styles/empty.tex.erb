@@ -1,0 +1,29 @@
+\documentclass{article}
+
+% header.tex
+<%=@header%>
+
+\begin{document}
+
+% document metadata:
+{\centerline{\LARGE{\bf
+{<%=@long_title%>}
+}}}
+
+\bigskip
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\centerline{\bf {<%=@first_author%>}}
+<% @coauthor_list.to_a.each do |coau| %>\centerline{\bf {<%=coau%>}}
+<% end %>
+<% end %>
+
+\bigskip
+
+% abstract (optional)
+% \section{Abstract}
+<%= @abstract %>
+
+% document body
+

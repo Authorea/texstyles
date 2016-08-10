@@ -1,0 +1,6 @@
+---
+name: Journal of Experimental Biology
+category: bio
+citation_style: jxb
+default_packages:
+  "*": true

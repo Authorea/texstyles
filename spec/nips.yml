@@ -1,0 +1,6 @@
+---
+name: Neural Information Processing Systems (NIPS)
+category: computers
+citation_style: aaai
+default_packages:
+  "*": true

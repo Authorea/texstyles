@@ -1,0 +1,6 @@
+---
+name: NSF
+category: grants
+citation_style: jponew
+default_packages:
+  "*": true

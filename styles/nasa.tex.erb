@@ -1,0 +1,111 @@
+\documentclass[letterpaper,12pt]{article}
+%\documentclass{article}
+
+%% ----------------------- Header ----------------------------------
+%% *****************************************************************
+%% ""
+%% *****************************************************************
+%% -----------------------------------------------------------------
+%% -----------------------------------------------------------------
+
+%% **************************************************************************
+%% Packages
+%% **************************************************************************
+
+% \usepackage{epsfig}
+% \usepackage{colortbl}
+%\usepackage{aas_short}
+\usepackage{color}
+\usepackage{deluxetable}
+
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage{verbatim}
+\usepackage{caption}
+\captionsetup[figure]{
+  font=footnotesize,
+% labelformat=empty,
+  labelsep=none,
+% labelfont=bf,
+  justification=RaggedRight
+   }
+
+<%=@default_packages %>
+%%***************************************************************************
+%% hyper-ref
+%%***************************************************************************
+\hypersetup{colorlinks=true}
+
+%%***************************************************************************
+%% Biblio options
+%%***************************************************************************
+
+%	\bibfont{\footnotesize}
+       \setlength{\bibsep}{0.125cm}
+       \setlength{\bibhang}{0.25cm}
+       \renewcommand\bibsection% force references to be a numbered section.
+       {%
+       \section{\refname}%
+       }
+       \bibpreamble{}
+
+%%***************************************************************************
+%% Layout options
+%%***************************************************************************
+
+\textwidth=6.5in
+\textheight=8.5in
+\topmargin=-0.25in
+\oddsidemargin=0.0in
+\evensidemargin=0.0in
+\setlength{\parskip}{1ex plus0.3ex minus0.2ex}
+
+%\pagenumbering{arabic}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % delete current header and footer
+\lhead{\bfseries <%=@short_title%>}
+\rhead{\bfseries \thepage}
+%\rhead{\bfseries \rightmark}
+%\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % space for the rule
+\fancypagestyle{plain}{%
+	\fancyhead{} % get rid of headers on plain pages
+	\renewcommand{\headrulewidth}{0pt} % and the line
+	}
+\fancypagestyle{toc}{%
+	\fancyhead{} % get rid of headers on plain pages
+	\lhead{}
+	\rhead{}
+	\chead{\bfseries <%=@short_title%>}
+	\renewcommand{\headrulewidth}{0.0pt} % and the line
+	}
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%><% if !@coauthor_list.to_a.empty? %><% for author in @coauthor_list %>, <%=author%><% end %><% end %>}
+<% end %>
+%% **************************************************************************
+%% Miscellaneous commands
+%% **************************************************************************
+
+\hyphenation{}
+%
+
+<%=@header%>
+
+
+%% **************************************************************************
+%% Begin document
+%% **************************************************************************s
+
+\begin{document}
+
+\thispagestyle{toc}
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+

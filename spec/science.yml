@@ -1,0 +1,7 @@
+---
+name: Journal
+category: generic
+subcategory: Science
+citation_style: Science
+default_packages:
+  "*": true

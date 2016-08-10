@@ -1,0 +1,68 @@
+% Use the University of Michigan thesis class.
+\documentclass[thesis]{thesis-umich}
+
+
+<%=@default_packages%>
+
+<%=@header%>
+
+% Title of the thesis
+\title{<%=@long_title%>}
+
+% Author name
+\author{<%=@first_author%>}
+
+% Department
+\department{Department}
+
+% Year of completion
+\year=2016
+
+% Frontispiece
+\frontispiece{}
+
+% Default style for front pages
+\frontpagestyle{1}
+
+% Dedication
+\dedication{ %
+Dedication}
+
+% Acknowledgments
+\acknowledgments[6]{ %
+Acknowledgments}
+% This command sets the width of the acknowledgments area as a fraction
+% of the total width of the text area.
+\acknowledgmentswidth{0.8}
+
+% Preface
+\preface[2]{ %
+Preface}
+
+% Committee
+\committee{ %
+Committee}
+
+% Chair must be entered separately for formatting reasons.
+\chair{Chair}
+
+% Commands to hide or show lists of figures, tables, etc.
+%\hidelistoftables
+\showlistofprograms
+\showlistofappendices
+
+% Definition of any abbreviations used.
+\abbreviations{
+}
+
+% Using AIAA bibliography style since I'm in aero.
+
+% Some abstract text
+\abstract{<%= @abstract %>}
+%\hideabstractpagenumber
+
+%% DOCUMENT AREA
+\begin{document}
+
+
+

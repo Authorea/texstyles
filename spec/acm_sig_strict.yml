@@ -1,0 +1,7 @@
+---
+name: SIG Strict
+category: computers
+subcategory: ACM
+citation_style: abbrv
+default_packages:
+  "*": true

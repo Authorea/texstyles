@@ -1,0 +1,6 @@
+---
+name: DFG
+category: grants
+citation_style: 
+default_packages:
+  "*": true

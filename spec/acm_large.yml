@@ -1,0 +1,7 @@
+---
+name: Large Format
+category: computers
+subcategory: ACM
+citation_style: 
+default_packages:
+  "*": true

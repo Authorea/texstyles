@@ -1,0 +1,7 @@
+---
+name: Advances
+category: generic
+subcategory: Science
+citation_style: ScienceAdvances
+default_packages:
+  "*": true

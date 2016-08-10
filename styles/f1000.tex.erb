@@ -1,0 +1,38 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+<%=@default_packages%>
+
+\usepackage{f1000_styles}
+
+<%=@header%>
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[1]{<%=@first_author%>}
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\author[<%=i+2%>]{<%=@coauthor_list[i]%>}
+<% end %><% end %>
+
+\affil[1]{<%=@first_affiliation%>}
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>
+\affil[<%=i+2%>]{<%=@coauthor_affiliations[i]%>}
+<% end %><% end %>
+<% end %>
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+<%= @abstract_begin_end %>
+
+
+\clearpage
+
+%\begin{keywords}
+%circumstellar matter -- infrared: stars.
+%\end{keywords}
+
+
+

@@ -1,0 +1,45 @@
+%% Submissions for peer-review must enable line-numbering
+%% using the lineno option in the \documentclass command.
+%%
+%% Preprints and camera-ready submissions do not need
+%% line numbers, and should have this option removed.
+%%
+%% Please note that the line numbering option requires
+%% version 1.1 or newer of the wlpeerj.cls file.
+
+\documentclass[fleqn,10pt,lineno]{wlpeerj} % for journal submissions
+% \documentclass[fleqn,10pt]{wlpeerj} % for preprint submissions
+
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\title{<%=@long_title%>}
+
+\keywords{} % empty for now, contact help@authorea.com to request support
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[1]{<%=@first_author%>}
+  <% if !@coauthor_list.to_a.empty? %>
+  <% for i in (0..@coauthor_list.length-1) %>
+\author[<%=i+2%>]{<%=@coauthor_list[i]%>}
+  <% end %><% end %>
+
+\affil[1]{<%=@first_affiliation%>}
+  <% if !@coauthor_list.to_a.empty? %>
+  <% for i in (0..@coauthor_list.length-1) %>
+\affil[<%=i+2%>]{<%=@coauthor_affiliations[i]%>}
+  <% end %><% end %>
+<% end %>
+
+<%= @abstract_begin_end %>
+
+\begin{document}
+
+\flushbottom
+\maketitle
+\thispagestyle{empty}
+

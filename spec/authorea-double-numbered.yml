@@ -1,0 +1,6 @@
+---
+name: Authorea Double-spaced, Numbered Lines
+category: generic
+citation_style: apacite
+default_packages:
+  "*": true

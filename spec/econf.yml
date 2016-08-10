@@ -1,0 +1,6 @@
+---
+name: eConf
+category: other
+citation_style: unsrt
+default_packages:
+  "*": true

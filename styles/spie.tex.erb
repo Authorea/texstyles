@@ -1,0 +1,68 @@
+%  article.tex (Version 3.3, released 19 January 2008)
+%  Article to demonstrate format for SPIE Proceedings
+%  Special instructions are included in this file after the
+%  symbol %>>>>
+%  Numerous commands are commented out, but included to show how
+%  to effect various options, e.g., to print page numbers, etc.
+%  This LaTeX source file is composed for LaTeX2e.
+
+%  The following commands have been added in the SPIE class
+%  file (spie.cls) and will not be understood in other classes:
+%  \supit{}, \authorinfo{}, \skiplinehalf, \keywords{}
+%  The bibliography style file is called spiebib.bst,
+%  which replaces the standard style unstr.bst.
+
+\documentclass[]{spie}  %>>> use for US letter paper
+%%\documentclass[a4paper]{spie}  %>>> use this instead for A4 paper
+%%\documentclass[nocompress]{spie}  %>>> to avoid compression of citations
+%% \addtolength{\voffset}{9mm}   %>>> moves text field down
+%% \renewcommand{\baselinestretch}{1.65}   %>>> 1.65 for double spacing, 1.25 for 1.5 spacing
+%  The following command loads a graphics package to include images
+%  in the document. It may be necessary to specify a DVI driver option,
+%  e.g., [dvips], but that may be inappropriate for some LaTeX
+%  installations.
+\usepackage[]{graphicx}
+
+<%=@default_packages%>
+
+\title{<%=@long_title%>}
+
+%>>>> The author is responsible for formatting the
+%  author list and their affiliations.  Use \\ to force linebreaks.
+%  The correspondence between each author and his/her address
+%  can be indicated with a superscript,
+%  which is easily obtained with \supscr{}.
+%>>>> After the abstract, the author must include
+%  a list of keywords and contact information for the corresponding author.
+
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\supit{1} <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>and <%=@coauthor_list[i]%>\supit{<%=i+2%>}<% end %><% end %>
+\skiplinehalf
+\supit{1}<%=@first_affiliation%>
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>\\
+\supit{<%=i+2%>}<%=@coauthor_affiliations[i]%><% end %><% end %>}
+
+%>>>> Further information about the authors, other than their
+%  institution and addresses, should be included as a footnote,
+%  which is facilitated by the \authorinfo{} command.
+
+\authorinfo{}
+%%>>>> when using amstex, you need to use @@ instead of @
+<% end %>
+
+<%=@header%>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%>>>> uncomment following for page numbers
+% \pagestyle{plain}
+%>>>> uncomment following to start page numbering at 301
+%\setcounter{page}{301}
+
+  \begin{document}
+  \maketitle
+
+<%= @abstract_begin_end %>
+

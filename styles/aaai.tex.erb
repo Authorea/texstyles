@@ -1,0 +1,29 @@
+\documentclass[letterpaper]{article}
+<%=@default_packages%>
+\usepackage{aaai}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{times}
+
+<%=@header%>
+
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\setcounter{secnumdepth}{0}
+\begin{document}
+% The file aaai.sty is the style file for AAAI Press
+% proceedings, working notes, and technical reports.
+%
+
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\\ <%=@first_affiliation%> <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> \And <%=@coauthor_list[i]%>\\ <%=@coauthor_affiliations[i]%><% end %><% end %>}
+<% end %>
+
+\maketitle
+
+<%= @abstract_begin_end %>

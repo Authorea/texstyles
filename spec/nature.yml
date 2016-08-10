@@ -1,0 +1,7 @@
+---
+name: Journal
+category: generic
+subcategory: Nature
+citation_style: naturemag
+default_packages:
+  "*": true

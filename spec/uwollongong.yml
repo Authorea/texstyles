@@ -1,0 +1,6 @@
+---
+name: U. Wollongong (Australia)
+category: thesis
+citation_style: agsm
+default_packages:
+  "*": true

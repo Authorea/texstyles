@@ -1,0 +1,6 @@
+---
+name: Hydrology and Earth System Sciences
+category: geo
+citation_style: copernicus
+default_packages:
+  "*": true

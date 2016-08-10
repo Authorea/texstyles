@@ -1,0 +1,7 @@
+---
+name: Pre-print
+category: physics
+subcategory: American Institute of Physics (AIP)
+citation_style: aipauth4-1
+default_packages:
+  "*": true

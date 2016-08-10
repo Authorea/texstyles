@@ -1,0 +1,7 @@
+---
+name: Two column
+category: generic
+subcategory: Elsevier
+citation_style: elsarticle-num
+default_packages:
+  "*": true

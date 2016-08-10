@@ -1,0 +1,57 @@
+\documentclass[9pt,twocolumn,twoside]{gsag3jnl}
+
+\articletype{inv} % article type
+% {inv} Investigations
+% {msr} Mutant Screen Reports
+% {gs} Genomic Selection
+% {goi} Genetics of Immunity
+% {gos} Genetics of Sex
+% {mp} Multiparental Populations
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[$\ast$,1]{<%=@first_author%>}
+\affil[$\ast$]{<%=@first_affiliation%>}
+<% end %>
+
+%to manually edit use this format:
+%\author[$\ast$,1]{Author One}
+%\author[$\dagger$]{Author Two}
+%\author[$\ddagger$]{Author Three}
+%\author[$\S$]{Author Four}
+%\author[$\ast\ast$]{Author Five}
+
+%\affil[$\ast$]{Author one affiliation}
+%\affil[$\dagger$]{Author two affiliation}
+%\affil[$\ddagger$]{Author three affiliation}
+%\affil[$\S$]{Author four affiliation}
+%\affil[$\ast\ast$]{Author five affiliation}
+
+%\keywords{Keyword \\ Keyword2 \\ Keyword3 \\ ...}
+
+\runningtitle{<%=@short_title%>} % For use in the footer
+
+\correspondingauthor{Corresponding Author}
+
+<%= @abstract_begin_end %>
+
+\setboolean{displaycopyright}{true}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+\logomark
+\articletypemark
+\marginmark
+\firstpagefootnote
+\correspondingauthoraffiliation{<%=@first_affiliation%>}
+\vspace{-11pt}%
+

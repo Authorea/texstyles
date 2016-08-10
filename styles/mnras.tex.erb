@@ -1,0 +1,41 @@
+%\documentclass[referee,usenatbib]{mn2e}
+\documentclass[usenatbib]{mn2e}
+
+<%=@default_packages%>
+
+%\usepackage{natbib}
+
+<%=@header%>
+
+\title[<%=@long_title%>]{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[<%=@first_author%>]{<%=@first_author%>$^{1}$<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%>$^{<%=i+2%>}$<% end %><% end %>\\
+$^{1}$<%=@first_affiliation%>
+<% if !@coauthor_affiliations.to_a.empty? %><% for i in (0..@coauthor_affiliations.length-1) %>\\
+$^{<%=i+2%>}$<%=@coauthor_affiliations[i]%><% end %><% end %>}
+<% end %>
+
+\begin{document}
+
+%\date{Accepted 1988 December 15. Received 1988 December 14; in original form 1988 October 11}
+
+%\pagerange{\pageref{firstpage}--\pageref{lastpage}} \pubyear{2002}
+
+\maketitle
+
+\label{firstpage}
+
+<%= @abstract_begin_end %>
+
+
+%\begin{keywords}
+%circumstellar matter -- infrared: stars.
+%\end{keywords}
+
+
+
+
+

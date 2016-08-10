@@ -1,0 +1,6 @@
+---
+name: Cognitive Science Society (CogSci)
+category: computers
+citation_style: apacite
+default_packages:
+  "*": true

@@ -1,0 +1,32 @@
+\documentclass{statsoc}
+
+\usepackage{geometry}
+\geometry{papersize={7.444in,9.681in},total={4.8in,6.8in}}
+
+\usepackage{setspace}
+\singlespacing
+
+<%=@default_packages%>
+
+<%=@header%>
+
+
+\title[<%=@short_title%>]{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[<%=@first_author%> <% if !@coauthor_list.to_a.empty? %>{et~al.}<% end %>]{<%=@first_author%>}
+\address{<%=@first_affiliation%>}
+
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\author{<%=@coauthor_list[i]%>}
+\address{<%=@coauthor_affiliations[i]%>}
+<% end %><% end %>
+<% end %>
+
+\begin{document}
+
+<%= @abstract_begin_end %>
+
+
+

@@ -1,0 +1,7 @@
+---
+name: Ann Statistics
+category: other
+subcategory: Institute of Mathematical Statistics (IMS)
+citation_style: imsart-number
+default_packages:
+  "*": true

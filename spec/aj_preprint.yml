@@ -1,0 +1,7 @@
+---
+name: Preprint
+category: physics
+subcategory: The Astronomical Journal (AJ)
+citation_style: aj
+default_packages:
+  "*": true

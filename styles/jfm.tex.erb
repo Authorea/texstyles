@@ -1,0 +1,43 @@
+% This is file JFM2esam.tex
+% first release v1.0, 20th October 1996
+%       release v1.01, 29th October 1996
+%       release v1.1, 25th June 1997
+%       release v2.0, 27th July 2004
+%       release v3.0, 16th July 2014
+%   (based on JFMsampl.tex v1.3 for LaTeX2.09)
+% Copyright (C) 1996, 1997, 2014 Cambridge University Press
+
+\documentclass{jfm}
+\usepackage{graphicx}
+\usepackage{epstopdf, epsfig}
+
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\shorttitle{<%=@short_title%>}
+\shortauthor{<%=@first_author%>}
+
+\title{<%=@long_title%>}
+
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\aff{1}<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, \and <%=@coauthor_list[i]%>\affil{<%=i+2%>}<% end %><% end %>}
+
+\affiliation{\aff{1}<%=@first_affiliation%>
+<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>\aff{<%=i+2%>}<%=@coauthor_affiliations[i]%><% end %><% end %>}
+
+<% end %>
+
+\begin{document}
+
+\maketitle
+
+<%= @abstract_begin_end %>
+

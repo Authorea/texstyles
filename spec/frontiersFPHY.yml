@@ -1,0 +1,7 @@
+---
+name: Physics
+category: generic
+subcategory: Frontiers
+citation_style: frontiersinMED&FPHY
+default_packages:
+  "*": true

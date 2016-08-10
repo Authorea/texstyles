@@ -1,0 +1,7 @@
+---
+name: Referee
+category: physics
+subcategory: Astronomy & Astrophysics (A&A)
+citation_style: mnras
+default_packages:
+  "*": true

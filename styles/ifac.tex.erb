@@ -1,0 +1,36 @@
+%===============================================================================
+% $Id: ifacconf.tex 19 2011-10-27 09:32:13Z jpuente $
+% Template for IFAC meeting papers
+% Copyright (c) 2007-2008 International Federation of Automatic Control
+%===============================================================================
+\documentclass{ifacconf}
+
+%\usepackage{graphicx}      % include this line if your document contains figures
+%\usepackage{natbib}        % required for bibliography
+<%=@default_packages%>
+<%=@header%>
+
+%===============================================================================
+\begin{document}
+
+\begin{frontmatter}
+
+\title{<%=@long_title%>}
+% Title, preferably not more than 10 words.
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[First]{<%=@first_author%>}
+\address[First]{<%=@first_affiliation%>}
+<% end %>
+
+
+<%= @abstract_begin_end %>
+
+%\begin{keyword}
+%Five to ten keywords, preferably chosen from the IFAC keyword list.
+%\end{keyword}
+
+\end{frontmatter}
+%===============================================================================

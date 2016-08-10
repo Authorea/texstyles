@@ -1,0 +1,7 @@
+---
+name: Engineering
+category: generic
+subcategory: Frontiers
+citation_style: frontiersinSCNS&ENG
+default_packages:
+  "*": true

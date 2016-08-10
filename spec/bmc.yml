@@ -1,0 +1,6 @@
+---
+name: BioMed Central
+category: bio
+citation_style: bmc-mathphys
+default_packages:
+  "*": true

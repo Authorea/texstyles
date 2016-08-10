@@ -1,0 +1,6 @@
+---
+name: AAAI
+category: computers
+citation_style: aaai
+default_packages:
+  "*": true

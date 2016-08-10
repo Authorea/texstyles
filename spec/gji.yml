@@ -1,0 +1,6 @@
+---
+name: Geophysical Journal International (GJI)
+category: physics
+citation_style: gji
+default_packages:
+  "*": true

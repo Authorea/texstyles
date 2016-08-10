@@ -1,0 +1,6 @@
+---
+name: Bioinformatics
+category: bio
+citation_style: natbib
+default_packages:
+  "*": true

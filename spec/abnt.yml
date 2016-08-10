@@ -1,0 +1,6 @@
+---
+name: Associacao Brasileira de Normas Tecnicas - ABNT
+category: other
+citation_style: 
+default_packages:
+  "*": true

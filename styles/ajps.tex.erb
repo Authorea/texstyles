@@ -1,0 +1,69 @@
+% This is a LaTeX template for a submission to American Journal of Political Science
+% If you find any errors, please let me know: jjharden@unc.edu
+\documentclass[12pt, letterpaper]{article}
+
+%==============Packages & Commands=================
+\usepackage{graphicx} % Graphics
+\usepackage{indentfirst} % Tells LaTeX to indent every paragraph
+\usepackage{setspace} % To set line spacing
+\usepackage[longnamesfirst]{natbib} % For references
+\usepackage{booktabs} % For tables
+\usepackage{rotating} % For sideways tables/figures
+\usepackage{amsmath} % Some math symbols
+\usepackage[margin = 1in]{geometry}
+\usepackage{subfig}
+\usepackage{mdwlist}
+\usepackage{url}
+\usepackage{verbatim}
+\urlstyle{same}
+\usepackage{multirow}
+\usepackage[nolists]{endfloat} % Figures and tables at the end
+\newcommand{\R}{\texttt{R}\space} % Write R in typewriter font
+\newcommand{\trans}[1]{{#1}^{\ensuremath{\mathsf{T}}}} % Transpose symbol
+\bibpunct{(}{)}{;}{a}{}{,} % Reference punctuation
+\captionsetup[subfloat]{position = top, font = large} % For sub-figure captions
+
+<%=@default_packages%>
+
+%===============Some new commands==================
+\newcommand{\fnote}[1]{\footnote{\begin{doublespace}\normalsize{#1}\vspace{-26pt}\end{doublespace}}} % 12 pt, double spaced footnotes
+\renewcommand{\figureplace}{ % This places [Insert Table X here] and [Insert Figure Y here] in the text
+\begin{center}
+[Insert \figurename~\thepostfig\ here]
+\end{center}}
+\renewcommand{\tableplace}{%
+\begin{center}
+[Insert \tablename~\theposttbl\ here]
+\end{center}}
+
+<%=@header%>
+
+%============Article Title, Authors================
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%><% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%><% end %><% end %>}
+<% end %>
+
+%===================Startup========================
+\begin{document}
+\maketitle
+\doublespacing
+\vspace{5.5in}
+\thispagestyle{empty}
+%===================Abstract=======================
+\newpage
+\thispagestyle{empty}
+\begin{abstract}
+\begin{normalsize}
+\noindent <%=@abstract%>
+
+\end{normalsize}
+\end{abstract}
+
+%================Begin Manuscript==================
+\newpage
+
+

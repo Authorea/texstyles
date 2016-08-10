@@ -1,0 +1,6 @@
+---
+name: Journal of Fluid Mechanics
+category: geo
+citation_style: jfm
+default_packages:
+  "*": true

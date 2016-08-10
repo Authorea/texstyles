@@ -1,0 +1,66 @@
+\documentclass{proposalnsf}
+%\usepackage{epsfig}
+
+<%=@default_packages%>
+
+% NSF proposal generation template style file.
+% based on latex stylefiles  written by Stefan Llewellyn Smith and
+% Sarah Gille, with contributions from other collaborators.
+
+\newcommand{\jas}{{\it J. Atmos. Sci.}}
+\newcommand{\jpo}{{\it J. Phys. Oceanogr.}}
+\newcommand{\JPO}{{\it J. Phys. Oceanogr.}}
+\newcommand{\jfm}{{\it J. Fluid Mech.}}
+\newcommand{\jgr}{{\it J. Geophys. Res.}}
+\newcommand{\JGR}{{\it J. Geophys. Res.}}
+\newcommand{\jmr}{{\it J. Mar. Res.}}
+\newcommand{\arfm}{{\it Ann. Rev. Fluid Mech.}}
+\newcommand{\dsr}{{\it Deep-Sea Res.}}
+\newcommand{\dao}{{\it Dyn. Atmos. Oceans}}
+\newcommand{\jam}{{\it Journal of Applied Meteorology}}
+\newcommand{\phfl}{{\it Phys. Fluids}}
+\newcommand{\phfla}{{\it Phys. Fluids A}}
+\newcommand{\PhilTrans}{{\it Philosophical Transactions of the Royal Society,
+London}}
+\newcommand{\gafd}{{\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\gfd}{{\it Geophys. Fluid Dyn.}}
+\newcommand{\PCE}   {{\it Physics and Chemistry of the Earth}}
+\newcommand{\PRL}   {{\it Physical Review Letters}}
+
+\newcommand{\mnras}{Monthly Notices of the Royal Astronomical Society}
+\newcommand{\apj}{Astrophysical Journal}
+\newcommand{\aj}{Astronomical Journal}
+\newcommand{\apjl}{Astrophysical Journal Letters}
+\newcommand{\apjs}{Astrophysical Journal Supplement}
+\newcommand{\aap}{Astronomy \& Astrophysics}
+\newcommand{\araa}{Annual Reviews of Astronomy and Astrophysics}
+\newcommand{\apss}{Astrophysics \& Space Science}
+\newcommand{\nat}{Nature}
+
+\newcommand{\ProgOc}{{\it Prog. Oceanography}}
+\newcommand{\WHOITR}{Woods Hole Oceanographic Institution Technical Report, WHOI-}
+\newcommand{\degrees}{$\!\!$\char23$\!$}
+\DeclareFontFamily{OT1}{psyr}{}
+\DeclareFontShape{OT1}{psyr}{m}{n}{<-> psyr}{}
+\def\times{{\fontfamily{psyr}\selectfont\char180}}
+
+<%=@header%>
+
+\renewcommand{\refname}{\centerline{References cited}}
+
+% this handles hanging indents for publications
+\def\rrr#1\\{\par
+\medskip\hbox{\vbox{\parindent=2em\hsize=6.12in
+\hangindent=4em\hangafter=1#1}}}
+
+\def\baselinestretch{0.931}
+
+\begin{document}
+
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\arabic{page}}
+
+\noindent{\Large \bf PROJECT DESCRIPTION}
+\small
+
+

@@ -1,0 +1,6 @@
+---
+name: Astronomical Society of the Pacific (ASP)
+category: physics
+citation_style: asp2010
+default_packages:
+  "*": true

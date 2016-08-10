@@ -1,0 +1,7 @@
+---
+name: Two column
+category: other
+subcategory: American Meteorological Society (AMS)
+citation_style: ametsoc2014
+default_packages:
+  "*": true

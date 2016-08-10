@@ -1,0 +1,6 @@
+---
+name: G3- Genes|Genomes|Genetics
+category: bio
+citation_style: 
+default_packages:
+  "*": true

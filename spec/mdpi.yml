@@ -1,0 +1,6 @@
+---
+name: Molecular Diversity Preservation International - MDPI
+category: other
+citation_style: mdpi
+default_packages:
+  "*": true

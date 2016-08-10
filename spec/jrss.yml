@@ -1,0 +1,6 @@
+---
+name: Journal of the Royal Statistical Society - JRSS
+category: other
+citation_style: Chicago
+default_packages:
+  "*": true

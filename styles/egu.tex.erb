@@ -1,0 +1,73 @@
+%% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
+%% ---------------------------------
+%% This template should be used for the following class files: copernicus.cls, copernicus2.cls, copernicus_discussions.cls
+%% The class files, the Copernicus LaTeX Manual with detailed explanations regarding the comments
+%% and some style files are bundled in the Copernicus Latex Package which can be downloaded from the different journal webpages.
+%% For further assistance please contact the Publication Production Office (production@copernicus.org).
+%% http://publications.copernicus.org
+
+
+%% Differing commands regarding the specific class files are highlighted.
+
+
+%% copernicus.cls
+\documentclass[journal abbreviation]{copernicus}
+
+%% copernicus2.cls
+%\documentclass[journal abbreviation]{copernicus2}
+
+%% copernicus_discussions.cls
+%\documentclass[journal abbreviation, hvmath, online]{copernicus_discussions}
+
+
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\begin{document}
+
+\linenumbers
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[1]{<%=@first_author%>}
+<% if !@coauthor_list.to_a.empty? %>
+<% for i in (0..@coauthor_list.length-1) %>
+\author[<%=i+2%>]{<%=@coauthor_list[i]%>}
+<% end %><% end %>
+
+\affil[1]{<%=@first_affiliation%>}
+<% if !@coauthor_list.to_a.empty? %>
+<% for i in (0..@coauthor_list.length-1) %>
+\affil[<%=i+2%>]{<%=@coauthor_affiliations[i]%>}
+<% end %><% end %>
+<% end %>
+%% The [] brackets identify the author to the corresponding affiliation, 1, 2, 3, etc. should be inserted.
+
+
+
+\runningtitle{<%=@long_title%>}
+
+\runningauthor{<%=@first_author%>}
+
+\correspondence{<%=@first_author%>}
+
+\received{}
+\pubdiscuss{} %% only important for two-stage journals
+\revised{}
+\accepted{}
+\published{}
+
+%% These dates will be inserted by the Publication Production Office during the typesetting process.
+
+
+\firstpage{1}
+
+\maketitle  %% Please note that for the copernicus2.cls this command needs to be inserted after \abstract{TEXT}
+
+
+<%= @abstract_begin_end %>

@@ -1,0 +1,6 @@
+---
+name: Development
+category: bio
+citation_style: jxb
+default_packages:
+  "*": true

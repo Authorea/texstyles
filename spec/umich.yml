@@ -1,0 +1,6 @@
+---
+name: U. Michigan
+category: thesis
+citation_style: unsrt
+default_packages:
+  "*": true

@@ -1,0 +1,6 @@
+---
+name: International Federation of Automatic Control (IFAC)
+category: physics
+citation_style: ifacconf-harvard
+default_packages:
+  "*": true

@@ -1,0 +1,6 @@
+---
+name: Curriculum Vitae (cv)
+category: generic
+citation_style: unsrt
+default_packages:
+  "*": true

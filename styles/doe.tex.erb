@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+
+% Set the margins to 1 inch at all sides
+\usepackage[
+  paper=letterpaper,
+  lmargin=1in,
+  rmargin=1in,
+  tmargin=1in,
+  bmargin=1in]{geometry}
+
+% Modify the captions so that they look better, the way I like them at least...
+\usepackage[font={small,bf},textfont=md,format=hang,margin=20pt,
+singlelinecheck=false]{caption}
+
+% Make fancy headers and everything...
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Headers - left, center and right.
+\lhead{Topic}
+\chead{Proposal}
+\rhead{<%=@short_title%>}
+% Footers - as before
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancypagestyle{plain}{%
+  \fancyhead{} % get rid of headers on plain pages
+  \renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+
+% Use the times package to change font if you really have to....
+\usepackage{times}
+\usepackage[affil-it]{authblk}
+
+
+\begin{document}
+
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>}
+\affil{<%=@first_affiliation%>}
+<% if !@coauthor_list.to_a.empty? %>
+  <% for i in (0..@coauthor_list.length-1) %>
+\author{<%=@coauthor_list[i]%>}
+\affil{<%=@coauthor_affiliations[i]%>}
+  <% end %>
+<% end %>
+<% end %>
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+

@@ -1,0 +1,28 @@
+\documentclass{cernatsnote}
+\usepackage{texnames}
+%\usepackage[T1]{fontenc}
+\usepackage{rotating}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\pagestyle{plain}
+
+\begin{document}
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%><% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>, <%=@coauthor_list[i]%><% end %><% end %>}
+<% end %>
+
+\keywords{}
+
+\maketitle % this produces the title block
+
+<%= @abstract_begin_end %>
+
+

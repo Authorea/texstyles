@@ -1,0 +1,6 @@
+---
+name: Empty
+category: generic
+citation_style: plain
+default_packages:
+  "*": false

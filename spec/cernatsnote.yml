@@ -1,0 +1,7 @@
+---
+name: ATS Note
+category: physics
+subcategory: CERN
+citation_style: naturemag
+default_packages:
+  "*": true

@@ -1,0 +1,6 @@
+---
+name: The Royal Society of Chemistry (RSC)
+category: bio
+citation_style: rsc
+default_packages:
+  "*": true

@@ -1,0 +1,6 @@
+---
+name: PNAS
+category: generic
+citation_style: pnas
+default_packages:
+  "*": true

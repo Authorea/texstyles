@@ -1,0 +1,7 @@
+---
+name: Landscape
+category: generic
+subcategory: Poster
+citation_style: plain
+default_packages:
+  "*": true

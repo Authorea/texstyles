@@ -1,0 +1,30 @@
+\documentclass[a4paper,11pt]{article}
+<%=@default_packages%>
+<%=@header%>
+
+\usepackage{titlesec}					%custom \section
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+\setlength\parindent{0pt}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\usepackage{geometry}
+\geometry{margin=0.75in}
+
+\usepackage{datetime}
+
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+
+\begin{document}
+
+\title{\bfseries\large <%=@long_title%>}
+
+\date{\vspace{-1.0cm}\monthyeardate\today}
+
+\maketitle

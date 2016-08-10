@@ -1,0 +1,6 @@
+---
+name: U. of California, Riverside
+category: thesis
+citation_style: plain
+default_packages:
+  "*": true

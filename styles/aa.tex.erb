@@ -1,0 +1,46 @@
+%                                                                 aa.dem
+% AA vers. 8.2, LaTeX class for Astronomy & Astrophysics
+% demonstration file
+%                                                       (c) EDP Sciences
+%-----------------------------------------------------------------------
+%
+%\documentclass[referee]{aa} % for a referee version
+%\documentclass[onecolumn]{aa} % for a paper on 1 column
+%\documentclass[longauth]{aa} % for the long lists of affiliations
+%\documentclass[rnote]{aa} % for the research notes
+%\documentclass[letter]{aa} % for the letters
+%\documentclass[bibyear]{aa} % if the references are not structured
+% according to the author-year natbib style
+
+%
+\documentclass[referee]{aa}
+
+%
+%\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{txfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[options]{hyperref}
+% To add links in your PDF file, use the package "hyperref"
+% with options according to your LaTeX or PDFLaTeX drivers.
+%
+%\usepackage{natbib}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+\begin{document}
+
+\title{<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%><% if !@coauthor_list.to_a.empty? %><% for author in @coauthor_list %> \and <%=author%><% end %><% end %>}
+
+\institute{<%=@first_affiliation%><% if !@coauthor_affiliations.to_a.empty? %><% for affiliation in @coauthor_affiliations %> \and <%=affiliation%><% end %><% end %>}
+<% end %>
+
+<%= @abstract_command %>
+
+\maketitle

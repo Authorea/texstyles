@@ -1,0 +1,26 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips13submit_e,times}
+
+<%=@default_packages%>
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>\\ <%=@first_affiliation%>\\ <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> \And <%=@coauthor_list[i]%>\\ <%=@coauthor_affiliations[i]%>\\<% end %><% end %>}
+<% end %>
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+<%=@header%>
+
+%\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+<%= @abstract_begin_end %>
+

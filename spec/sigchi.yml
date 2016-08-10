@@ -1,0 +1,7 @@
+---
+name: SIGCHI
+category: computers
+subcategory: ACM
+citation_style: acm-sigchi
+default_packages:
+  "*": true

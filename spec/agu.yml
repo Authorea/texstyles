@@ -1,0 +1,6 @@
+---
+name: American Geophysical Union (AGU)
+category: geo
+citation_style: agufull08
+default_packages:
+  "*": true

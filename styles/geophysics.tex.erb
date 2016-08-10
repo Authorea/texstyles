@@ -1,0 +1,38 @@
+\documentclass[manuscript,revised]{geophysics}
+
+<%=@default_packages%>
+
+% An example of defining macros
+\newcommand{\rs}[1]{\mathstrut\mbox{\scriptsize\rm #1}}
+\newcommand{\rr}[1]{\mbox{\rm #1}}
+
+<%=@header%>
+
+\begin{document}
+
+\title{<%=@long_title%>}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%\ms{} % manuscript number
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\address{
+\footnotemark[1]<%=@first_affiliation%><% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
+\footnotemark[<%=i+2%>]<%=@coauthor_affiliations[i]%><% end %><% end %>
+}
+
+\author{<%=@first_author%>\footnotemark[1]<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> and <%=@coauthor_list[i]%>\footnotemark[<%=i+2%>]<% end %><% end %>}
+
+%\footer{}
+\lefthead{<%=@first_author%>}
+<% end %>
+\righthead{<%=@long_title%>}
+
+\maketitle
+
+<%= @abstract_begin_end %>
+
+
+

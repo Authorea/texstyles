@@ -1,0 +1,6 @@
+---
+name: European Physical Journal C (EPJ C)
+category: physics
+citation_style: spphys
+default_packages:
+  "*": true

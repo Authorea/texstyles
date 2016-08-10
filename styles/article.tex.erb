@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[affil-it]{authblk}
+<%=@default_packages%>
+<%=@header%>
+
+
+\begin{document}
+
+\title{<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>}
+\affil{<%=@first_affiliation%>}
+<% if !@coauthor_list.to_a.empty? %>
+  <% for i in (0..@coauthor_list.length-1) %>
+\author{<%=@coauthor_list[i]%>}
+\affil{<%=@coauthor_affiliations[i]%>}
+  <% end %>
+<% end %>
+<% end %>
+
+\date{\today}
+
+\maketitle
+
+<%= @abstract_begin_end %>

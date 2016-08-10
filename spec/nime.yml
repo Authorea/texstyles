@@ -1,0 +1,6 @@
+---
+name: New Interfaces for Musical Expression - NIME
+category: other
+citation_style: abbrv
+default_packages:
+  "*": true

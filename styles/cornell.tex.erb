@@ -1,0 +1,75 @@
+\documentclass[phd,tocprelim]{cornell}
+%
+% tocprelim option must be included to put the roman numeral pages in the
+% table of contents
+%
+% The cornellheadings option will make headings completely consistent with
+% guidelines.
+%
+% This sample document was originally provided by Blake Jacquot, and
+% fixed up by Andrew Myers.
+%
+%Some possible packages to include
+\usepackage{graphicx,pstricks}
+\usepackage{graphics}
+\usepackage{moreverb}
+\usepackage{subfigure}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{hangcaption}
+\usepackage{txfonts}
+\usepackage{palatino}
+
+<%=@default_packages%>
+
+<%=@header%>
+
+%if you're having problems with overfull boxes, you may need to increase
+%the tolerance to 9999
+\tolerance=9999
+
+\renewcommand{\caption}[1]{\singlespacing\hangcaption{#1}\normalspacing}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+\title {<%=@long_title%>}
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author {<%=@first_author%>}
+<% end %>
+\conferraldate {June}{2014}
+\degreefield {Ph.D.}
+\copyrightholder{<%=@first_author%>}
+\copyrightyear{2014}
+
+\begin{document}
+
+\maketitle
+\makecopyright
+
+\begin{abstract}
+<%=@abstract%>
+\end{abstract}
+
+%\begin{biosketch}
+%Your biosketch goes here. Make sure it sits inside
+%the brackets.
+%\end{biosketch}
+
+%\begin{dedication}
+%This document is dedicated to all Cornell graduate students.
+%\end{dedication}
+
+%\begin{acknowledgements}
+%Your acknowledgements go here. Make sure it sits inside the brackets.
+%\end{acknowledgements}
+
+\contentspage
+\tablelistpage
+\figurelistpage
+
+\normalspacing \setcounter{page}{1} \pagenumbering{arabic}
+\pagestyle{cornell} \addtolength{\parskip}{0.5\baselineskip}
+

@@ -1,0 +1,51 @@
+% gjilguid2e.tex
+% V2.0 released 1998 December 18
+% V2.1 released 2003 October 7 -- Gregor Hutton, updated the web address for the style files.
+
+\documentclass{gji}
+\usepackage{timet}
+
+<%=@default_packages%>
+<%=@header%>
+
+\title[<%=@short_title%>]
+  {<%=@long_title%>}
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author[<%=@first_author%>]
+  {<%=@first_author%>$^1$ \\
+  $^1$ <%=@first_affiliation%>
+  }
+<% end %>
+
+%\date{Received 1998 December 18; in original form 1998 November 22}
+%\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+%\volume{200}
+%\pubyear{1998}
+
+%\def\LaTeX{L\kern-.36em\raise.3ex\hbox{{\small A}}\kern-.15em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}
+%\def\LATeX{L\kern-.36em\raise.3ex\hbox{{\Large A}}\kern-.15em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}
+% Authors with AMS fonts and mssymb.tex can comment out the following
+% line to get the correct symbol for Geophysical Journal International.
+\let\leqslant=\leq
+
+\newtheorem{theorem}{Theorem}[section]
+
+\begin{document}
+
+\label{firstpage}
+
+\maketitle
+
+
+\begin{summary}
+<%= @abstract %>
+\end{summary}
+
+%\begin{keywords}
+% \LaTeXe\ -- class files: \verb"gji.cls"\ -- sample text -- user guide.
+%\end{keywords}

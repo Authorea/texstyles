@@ -1,0 +1,7 @@
+---
+name: Small Standard Format
+category: computers
+subcategory: ACM
+citation_style: ACM-Reference-Format-Journals
+default_packages:
+  "*": true

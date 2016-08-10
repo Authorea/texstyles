@@ -1,0 +1,7 @@
+---
+name: Conference
+category: computers
+subcategory: IEEE Transactions
+citation_style: IEEEtran
+default_packages:
+  "*": true

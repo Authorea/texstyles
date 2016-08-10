@@ -1,0 +1,78 @@
+% thesis.tex (starting point of my thesis)
+
+% Declare overall type of document (use 12pt report class):
+\documentclass[12pt]{report}
+<%=@default_packages%>
+
+% Import uithesisXX.sty file:
+\usepackage{uithesis03}
+
+% Some examples (yours may be different):
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\bfx}{{\ensuremath{\mathbf{x}}}}
+\newcommand{\thetadd}{{\ensuremath{\bar{\theta}^{(\cdot)}_\cdot}}}
+
+
+<%=@header%>
+
+\begin{document}
+
+
+% prelude.tex (specification of which features in `uithesisXX.sty' you
+% are using, your personal information, and your title & abstract)
+
+% Specify features of `uithesisXX.sty' you want to use:
+\abtitlepgtrue % special title page announcing your abstract, not to
+               % be bound with thesis (required)
+\abstractpgtrue % special version of your abstract suitable for
+                % microfilming, not to be bound with thesis (required)
+\titlepgtrue % main title page (required)
+\copyrighttrue % copyright page (optional)
+\signaturepagetrue % page for thesis committee signatures (required)
+\dedicationtrue % dedication page (optional)
+\acktrue % acknowledgments page (optional)
+\abswithesistrue % abstract to be bound with thesis (optional)
+\tablecontentstrue % table of contents page (required)
+\tablespagetrue % table of contents page for tables (required only if you
+                % have tables)
+\figurespagetrue % table of contents page for figures (required only if
+                 % you have figures)
+
+\title{<%=@long_title%>} % use all capital letters
+
+<% if !@alternative_author_string.to_s.empty? %>
+ <%= @alternative_author_string %>
+<% else %>
+\author{<%=@first_author%>} % use mixed upper & lower case
+<% end %>
+\advisor{Title and Name of My Advisor} % example:
+                                       % Associate Professor John Doe
+\dept{Department} % your academic department
+\submitdate{Date} % month & year of your graduation
+
+\newcommand{\abstextwithesis}
+{<%=@abstract%>}
+
+\newcommand{\abstracttext}
+{<%=@abstract%>}
+
+\newcommand{\dedication}
+{ This is optional; start with the word ``To''; you do not need to end with
+  a period }
+
+\newcommand{\acknowledgement}
+{ This is also optional.  Use complete sentences here. }
+
+% Take care of things in `uithesisXX.sty' behind the scenes (it sounds
+% weird, but you need these commands):
+\beforepreface
+\afterpreface
+
+% newcom.tex (new command definitions)
+
+
+
+
+
+

@@ -1,0 +1,196 @@
+\documentclass[12pt,oneside]{book}
+
+\pagestyle{headings}
+
+% Note that the line below could be modified to suit a
+% particular system since the "geometry" package behaves
+% differently in Unix, Windows and Mac, especially for the
+% top margins.
+% Adjust the parameter "top" (measuring the height of the
+% space allocated to a header) and "headsep" (measuring
+% the distance from the bottom of the header to the
+% first line of text.
+\usepackage[top=1.3in,left=1.5in,bottom=1in,right=1in,headsep=0.5in]{geometry}
+
+\usepackage{setspace}
+\onehalfspacing
+%\doublespacing
+
+% Headers and footers for thesis
+\usepackage{fancyhdr}
+
+\markboth{}{}
+\newcommand\startchapter[1]{\chapter{#1}\thispagestyle{myheadings}}
+\newcommand\startappendix[1]{\chapter{#1}\thispagestyle{myheadings}}
+\newcommand\startfirstchapter[1]{\chapter{#1}}
+
+% Manual addition of section to Table of Contents
+\newcommand\TOCadd[1]{\newpage\phantomsection\addcontentsline{toc}{chapter}{#1}}
+
+% Float Customization
+\renewcommand{\floatpagefraction}{0.01}
+
+% Customization of Tables of Contents and List of Figures/Tables
+\usepackage{tocloft}
+\renewcommand\cfttabpresnum{Table\ }
+\renewcommand\cfttabnumwidth{0.75in}
+\renewcommand\cftfigpresnum{Figure\ }
+\renewcommand\cftfignumwidth{0.80in}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Long Table and decimal aligned columns
+\usepackage{dcolumn}
+\usepackage{longtable}
+
+% Mathematics support
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+% Text Control
+\usepackage{xspace}
+\usepackage{textcase}
+
+% Graphics
+\usepackage{wasysym}
+\usepackage{graphics}
+\usepackage{graphicx}   % A package to allow insertion of
+                        % external image files
+
+
+<%=@header%>
+
+\begin{document}
+
+% Front Matter
+%\input frontmatter/fm
+
+
+\newcommand\thesistitle{<%=@long_title%>}
+% One needs to make adjustments for a Master's Thesis
+\newcommand\nameanddegrees{%
+<%=@first_author%>\\
+Degree, Year}
+\newcommand\panel{%
+\HRule\\\panelist{Panelist}{Supervisor}{Department of Same As Candidate}
+\HRule\\\panelist{Panelist}{Departmental Member}{Department of Same As Candidate}
+\HRule\\\panelist{Panelist}{Departmental Member}{Department of Same As Candidate}
+\HRule\\\panelist{Panelist}{Outside Member}{Department of Not Same As Candidate}}
+%\HRule\\\panelist{Dr. \Ans{Current Unknown}}{Additional Member}{Department of \Ans{Current Unknown Department}}}
+% Titlepage break
+\newcommand\tpbreak{\\[\baselineskip]}
+
+\newpage
+% Suppress numbers on the first page
+\thispagestyle{empty}
+
+% Header Footer Setup (for Front matter)
+\pagestyle{myheadings}
+\pagenumbering{roman}
+% We use this in addition to the default \LaTeX page configuration routines
+% because we have no way of saying \thispagestyle after the glossary and bibliography starts.
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+% Front Matter
+%\input frontmatter/tp
+%\input frontmatter/sc
+%\input frontmatter/abs
+
+\pagebreak
+{
+\centering
+\thesistitle
+\tpbreak
+by
+\tpbreak
+\nameanddegrees
+\tpbreak
+% One needs to make adjustments for a Master's Thesis
+A Dissertation Submitted in Partial Fulfillment of the \\
+Requirements for the Degree of
+\tpbreak
+DOCTOR OF PHILOSOPHY
+\tpbreak
+in the Department of Whichever\\
+\vfill
+\begin{tabular}{cl}
+& \copyright\ <%=@first_author%>, 2008\\
+& \phantom{\copyright} University of Victoria
+\end{tabular}
+\tpbreak
+All rights reserved. This dissertation may not be reproduced in whole or in part, by \\
+\hfill photocopying or other means, without the permission of the author.
+\hfill
+}
+\pagebreak
+
+\newpage
+\TOCadd{Supervisory Committee}
+
+{
+\centering
+\thesistitle
+\tpbreak
+by
+\tpbreak
+\nameanddegrees
+\tpbreak
+}
+
+\newcommand\panelist[3]{\noindent #1, #2\\\noindent(#3)\tpbreak}
+\vfill
+\noindent Supervisory Committee
+\tpbreak
+\panel
+\vfill
+\pagebreak
+
+\newpage
+\TOCadd{Abstract}
+
+\noindent \textbf{Supervisory Committee}
+\tpbreak
+\panel
+
+\begin{center}
+\textbf{ABSTRACT}
+\end{center}
+
+<%= @abstract %>
+
+
+\TOCadd{Table of Contents}\tableofcontents
+\TOCadd{List of Tables}\listoftables
+\setcounter{lofdepth}{2}
+\TOCadd{List of Figures}\listoffigures
+%\input frontmatter/ack
+%\input frontmatter/ded
+
+% Header Footer Setup
+\newpage
+\pagestyle{myheadings}
+\pagenumbering{arabic}
+% We use this in addition to the default LaTeX page configuration routines
+% because we have no way of saying \thispagestyle after the bibliography starts.
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyhead[R]{\ifnum\thepage=1\relax\else\thepage\fi}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+
+
+
+
+
+
+
+\newpage
+

@@ -1,0 +1,6 @@
+---
+name: Chandra
+category: grants
+citation_style: plain
+default_packages:
+  "*": true

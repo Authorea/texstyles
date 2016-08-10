@@ -1,0 +1,79 @@
+%% uctest.tex 11/3/94
+%% Copyright (C) 1988-2004 Daniel Gildea, BBF, Ethan Munson.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2003/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work is Daniel Gildea.
+%
+% 2007/08/01
+% LaTeX Package "ucr" is modified from LaTeX package "ucthesis."
+% This modification is therefore under to the conditions of
+% the LaTeX Project Public License.
+% Its formality is suitable for the dissertation of Universty of
+% California, Riverside.
+% This test document is for the convenience of all students of
+% Universty of California, Riverside.
+% Contact Charles Yang at chcyang@yahoo.com if you like.
+% Charles Yang has nothing to do with the original author's sarcasm.
+%
+% \documentclass[11pt]{ucthesis}
+% \documentclass[11pt]{ucr}
+\documentclass[oneside,final, letterpaper]{ucr}
+\begin{document}
+
+% Declarations for Front Matter
+
+\title{<%=@long_title%>}
+\author{<%=@first_author%>}
+\degreemonth{Month}
+\degreeyear{Year}
+\degree{Doctor of Philosophy}
+\chair{Professor}
+\chairtwo{Professor}
+\othermembers{Professor}
+\numberofmembers{3}
+\field{Field}
+\campus{Riverside}
+
+\maketitle
+\copyrightpage{}
+\approvalpage{}
+
+\degreesemester{Fall}
+
+\begin{frontmatter}
+
+\begin{acknowledgements}
+Acknowledgements.
+\end{acknowledgements}
+
+\begin{dedication}
+\null\vfil
+{\large
+\begin{center}
+Dedication.
+\end{center}}
+\vfil\null
+\end{dedication}
+
+<%= @abstract_begin_end %>
+
+\tableofcontents
+\listoffigures
+\listoftables
+\end{frontmatter}
+
+% \part{First Part}
+
+\nocite{*}
+% \singlespacing
+
+

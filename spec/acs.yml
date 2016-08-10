@@ -1,0 +1,6 @@
+---
+name: American Chemical Society (ACS)
+category: bio
+citation_style: 
+default_packages:
+  "*": true
