@@ -3,9 +3,11 @@ require 'yaml'
 
 module Texstyles
   class Style
+    attr_accessor :symbol
 
-    def initialize(symbol='authorea')
-      style_filename = symbol + '.tex.erb'
+    def initialize(symbol=:authorea)
+      @symbol = symbol.to_sym
+      style_filename = "#{@symbol}.tex.erb"
       style_filepath = File.join(Texstyles.root, 'styles', style_filename)
       @erb = if File.exist? style_filepath
         ERB.new(File.read(style_filepath))
@@ -13,7 +15,7 @@ module Texstyles
         nil
       end
 
-      spec_filename = symbol + '.yml'
+      spec_filename = "#{@symbol}.yml"
       spec_filepath = File.join(Texstyles.root, 'spec', spec_filename)
       @spec = if File.exist? spec_filepath
         YAML.load_file(spec_filepath)
