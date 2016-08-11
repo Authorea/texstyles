@@ -1,5 +1,7 @@
 # TeX Styles
 
+A collection of ERB-based TeX/LaTeX preamble styles, for the world of scholarly writing and beyond. Founded and maintained by the [Authorea](www.authorea.com) team.
+
 **CAUTION: This repository is in a pre-alpha dev sprint, consider it completely unstable until a 0.1.0 release**
 
 [![Build Status](https://secure.travis-ci.org/Authorea/texstyles.png?branch=master)](https://travis-ci.org/Authorea/texstyles)
