@@ -1,6 +1,10 @@
 ---
 name: American Chemical Society (ACS)
 category: bio
-citation_style: 
+citation_style: achemso
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  natbib: true
+  hyperref: true
+  babel: false

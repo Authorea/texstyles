@@ -4,4 +4,8 @@ category: other
 subcategory: Institute of Mathematical Statistics (IMS)
 citation_style: imsart-number
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

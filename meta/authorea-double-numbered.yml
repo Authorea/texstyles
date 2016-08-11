@@ -3,4 +3,8 @@ name: Authorea Double-spaced, Numbered Lines
 category: generic
 citation_style: apacite
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  natbib: false
+  hyperref: false

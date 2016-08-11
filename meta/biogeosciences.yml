@@ -3,4 +3,8 @@ name: Biogeosciences
 category: geo
 citation_style: copernicus
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  natbib: true
+  hyperref: true
+  babel: false

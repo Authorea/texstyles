@@ -20,4 +20,12 @@ class SanityLoaderTest < Minitest::Test
     end
   end
 
+  def test_can_check_compatibility
+    empty_style = Texstyles::Style.new('empty')
+    assert !empty_style.package_compatible?('fakename'), 'all default packages are considered incompatible with the empty style'
+
+    generic_article_style = Texstyles::Style.new('article')
+    assert generic_article_style.package_compatible?('fakename'), 'all default packages are considered compatible with the article style'
+  end
+
 end

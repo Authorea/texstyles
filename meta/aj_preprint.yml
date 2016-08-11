@@ -4,4 +4,8 @@ category: physics
 subcategory: The Astronomical Journal (AJ)
 citation_style: aj
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

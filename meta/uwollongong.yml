@@ -3,4 +3,8 @@ name: U. Wollongong (Australia)
 category: thesis
 citation_style: agsm
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

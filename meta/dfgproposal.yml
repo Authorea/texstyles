@@ -1,6 +1,10 @@
 ---
 name: DFG
 category: grants
-citation_style: 
+citation_style:
 default_packages:
-  "*": true
+  latexml: true
+  ams: false
+  babel: false
+  hyperref: false
+  natbib: false

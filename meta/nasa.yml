@@ -3,4 +3,8 @@ name: NASA
 category: grants
 citation_style: abbrv
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

@@ -22,6 +22,10 @@ module Texstyles
       else
         {}
       end
+      @default_packages = @meta['default_packages'] || {}
+      @all_rule = @default_packages['*']
+      @all_compatible = (@all_rule == true)
+      @none_compatible = (@all_rule == false)
     end
 
     def render_latex
@@ -34,6 +38,10 @@ module Texstyles
 
     def category
       @meta['category']
+    end
+
+    def package_compatible?(package_name)
+      @all_compatible || (!@none_compatible && (@default_packages[package_name] != false))
     end
 
   end

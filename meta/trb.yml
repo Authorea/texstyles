@@ -3,4 +3,8 @@ name: Transportation Research Board conference - TRB
 category: other
 citation_style: trb
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

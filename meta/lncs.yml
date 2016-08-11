@@ -4,4 +4,8 @@ category: generic
 subcategory: Springer
 citation_style: splncs03
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

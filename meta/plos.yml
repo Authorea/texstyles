@@ -4,4 +4,8 @@ category: generic
 subcategory: PLoS
 citation_style: plos2009
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

@@ -4,4 +4,8 @@ category: generic
 subcategory: Elsevier
 citation_style: elsarticle-num
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false

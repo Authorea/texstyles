@@ -3,4 +3,8 @@ name: APA Style
 category: generic
 citation_style: apacite
 default_packages:
-  "*": true
+  ams: true
+  latexml: true
+  babel: true
+  hyperref: true
+  natbib: false
