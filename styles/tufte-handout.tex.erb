@@ -52,7 +52,7 @@
 
 \maketitle% this prints the handout title, author, and date
 
-<% if @abstract and !@abstract.blank? %>
+<% if @abstract && !@abstract.empty? %>
 \begin{abstract}
 \noindent <%=@abstract%>
 \end{abstract}

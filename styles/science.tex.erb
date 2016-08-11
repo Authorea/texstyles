@@ -108,7 +108,7 @@
 
 % Place your abstract within the special {sciabstract} environment.
 
-<% if @abstract and !@abstract.blank? %>
+<% if @abstract && !@abstract.empty? %>
 
 \begin{sciabstract}
 <%=@abstract%>

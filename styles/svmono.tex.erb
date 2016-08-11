@@ -52,7 +52,7 @@
 
 \frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-<% if @abstract and !@abstract.blank? %>
+<% if @abstract && !@abstract.empty? %>
 \extrachap{Abstract}
 <%=@abstract%>
 <% end %>

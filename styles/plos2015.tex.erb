@@ -223,7 +223,7 @@
 
 \end{flushleft}
 % Please keep the abstract below 300 words
-<% if @abstract and !@abstract.blank? %>
+<% if @abstract && !@abstract.empty? %>
 \section*{Abstract}
 <%=@abstract%>
 <% end %>

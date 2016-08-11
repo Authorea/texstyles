@@ -48,7 +48,7 @@
 
 \end{flushleft}
 
-<% if @abstract and !@abstract.blank? %>
+<% if @abstract && !@abstract.empty? %>
 \section*{Abstract}
 <%=@abstract%>
 <% end %>
