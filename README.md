@@ -1,6 +1,6 @@
 # TeX Styles
 
-** CAUTION: This repository is in a pre-alpha dev sprint, consider it completely unstable until a 0.1.0 release **
+**CAUTION: This repository is in a pre-alpha dev sprint, consider it completely unstable until a 0.1.0 release**
 
 [![Build Status](https://secure.travis-ci.org/Authorea/texstyles.png?branch=master)](https://travis-ci.org/Authorea/texstyles)
 [![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/authorea/texstyles/master/LICENSE)
