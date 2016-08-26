@@ -45,7 +45,7 @@ $^{<%=i+2%>}$ <%=@coauthor_affiliations[i]%> \\ <% end %><% end %>  }
 \onecolumn
 \firstpage{1}
 
-\title[<%=@short_title%>]{<%=@long_title%>}
+\title[<%=@short_title%>]{<%=@title%>}
 <% if !@alternative_author_string.to_s.empty? %>
  <%= @alternative_author_string %>
 <% else %>

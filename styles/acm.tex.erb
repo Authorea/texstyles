@@ -35,10 +35,10 @@
 \begin{document}
 
 % Page heads
-\markboth{<%=@first_author%>}{<%=@long_title%>}
+\markboth{<%=@first_author%>}{<%=@title%>}
 
 % Title portion
-\title{<%=@long_title%>}
+\title{<%=@title%>}
 <% if !@alternative_author_string.to_s.empty? %>
  <%= @alternative_author_string %>
 <% else %>

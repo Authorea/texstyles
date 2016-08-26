@@ -8,3 +8,4 @@ default_packages:
   natbib: true
   hyperref: true
   babel: false
+  inputenc: false

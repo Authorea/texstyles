@@ -11,7 +11,7 @@
 \author{<%=@first_author%>\\ <%=@first_affiliation%> <% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %> \and <%=@coauthor_list[i]%>\\ <%=@coauthor_affiliations[i]%><% end %><% end %>}
 <% end %>
 
-\title{<%=@long_title%>}
+\title{<%=@title%>}
 
 \maketitle
 

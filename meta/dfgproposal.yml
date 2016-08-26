@@ -6,5 +6,6 @@ default_packages:
   latexml: true
   ams: false
   babel: false
+  inputenc: false
   hyperref: false
   natbib: false

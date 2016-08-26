@@ -32,7 +32,7 @@ module Texstyles
       @default_packages = options[:default_packages].to_s
       @header = options[:header].to_s
       @alternative_author_string = options[:alternative_author_string].to_s
-      @long_title = options[:long_title].to_s
+      @title = options[:title].to_s
       @short_title = options[:short_title].to_s
       @first_author = options[:first_author].to_s
       @first_affiliation = options[:first_affiliation].to_s
