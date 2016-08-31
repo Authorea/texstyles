@@ -8,22 +8,13 @@ A collection of ERB-based TeX/LaTeX preamble styles, for the world of scholarly 
 [![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/authorea/texstyles/master/LICENSE)
 [![Gem Version](https://badge.fury.io/rb/texstyles.svg)](https://badge.fury.io/rb/texstyles)
 
+## Common Questions
 
-## Installation
+**Does this repository compete with [CTAN](www.ctan.org)?** No, to the contrary. It build on top of the CTAN wealth of LaTeX packages, and some custom publisher-provided ones, to assemble styling templates that fully conform to a given set of submission guidelines. The original use case has been submissions of scholarly articles, but we welcome extensions to theses, homeworks, quizzes, exercise sets, etc.
 
-Add this line to your application's Gemfile:
+**Why the choice of Ruby and ERB?** We wanted to optimize for simplicity and reusability, so we avoided more tool-focused templating solutions, such as Pandoc templates, or more elaborate XML-based solutions common to publishers.
 
-```ruby
-gem 'texstyles'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install texstyles
+**What is the Goal?**: Anyone should be able to grab this repository, write down a tiny metadata file, split out the header and main body of their LaTeX document and then have it typeset in but a few lines of Ruby ([example](https://github.com/Authorea/texstyles/blob/master/examples/example_stylize.rb)). We developed this component for our Authorea exporter and are happy to contribute it back to the community and develop it jointly from here on out.
 
 ## Usage
 
@@ -54,6 +45,22 @@ stylized_document = stylized_preamble + "a basic example\n"  + "\\end{document}"
 ```
 
 You can see a full example [here](https://github.com/Authorea/texstyles/blob/master/examples/example_stylize.rb)
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'texstyles'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install texstyles
 
 ## Roadmap
 
