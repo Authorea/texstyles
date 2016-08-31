@@ -8,7 +8,7 @@ class RenderTest < Minitest::Test
 
   def test_can_render_without_metadata
     authorea_style = Texstyles::Style.new(:authorea)
-    rendered_latex = authorea_style.render_latex
+    rendered_latex = authorea_style.stylize_metadata
 
     assert rendered_latex.include?('\\documentclass{article}')
     assert rendered_latex.include?('\\begin{document}')
@@ -16,7 +16,7 @@ class RenderTest < Minitest::Test
 
   def test_can_render_basic_with_metadata
     authorea_style = Texstyles::Style.new(:article)
-    rendered_latex = authorea_style.render_latex(@example_metadata)
+    rendered_latex = authorea_style.stylize_metadata(@example_metadata)
 
     assert rendered_latex.include?('\\documentclass{article}')
     assert rendered_latex.include?('\\begin{document}')

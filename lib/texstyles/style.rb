@@ -28,7 +28,7 @@ module Texstyles
       @none_compatible = (@all_rule == false)
     end
 
-    def render_latex(options = {})
+    def stylize_metadata(options = {})
       @default_packages = options["default_packages"].to_s
       @header = options["header"].to_s
       @alternative_author_string = options["alternative_author_string"].to_s

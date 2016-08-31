@@ -12,7 +12,7 @@ class SanityLoaderTest < Minitest::Test
 
     Texstyles.list.each do |symbol|
       style = Texstyles::Style.new(symbol)
-      latex_preamble_content = style.render_latex
+      latex_preamble_content = style.stylize_metadata
       assert latex_preamble_content.length > 0, "render is operational for style #{symbol}"
       assert style.name, "style #{symbol} has name set"
       assert style.category, "style #{symbol} has category set"
