@@ -16,7 +16,7 @@ A collection of ERB-based TeX/LaTeX preamble styles, for the world of scholarly 
 
 **What is the Goal?** Anyone should be able to grab this repository, write down a tiny metadata file, split out the header and main body of their LaTeX document and then have it typeset in but a few lines of Ruby ([example](https://github.com/Authorea/texstyles/blob/master/example/example_stylize.rb)). We developed this component for our Authorea exporter and are happy to contribute it back to the community and develop it jointly from here on out.
 
-** Wait, it's not so simple, how about...** This repository collects and refines an ever-growing dataset of stylistic templates for LaTeX documents. As such, it currently focuses entirely on document frontmatter/preamble information, and misses out on a long list of additional concerns, for example:
+**Wait, it's not so simple, how about...** This repository collects and refines an ever-growing dataset of stylistic templates for LaTeX documents. As such, it currently focuses entirely on document frontmatter/preamble information, and misses out on a long list of additional concerns, for example:
   * citation styles, and going beyond LaTeX citations (via CSL)
   * internationalization
   * conflict-free use of a default set of packages
