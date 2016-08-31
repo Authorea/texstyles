@@ -1,6 +1,6 @@
 # TeX Styles
 
-A collection of ERB-based TeX/LaTeX preamble styles, for the world of scholarly writing and beyond. Founded and maintained by the [Authorea](www.authorea.com) team.
+A collection of ERB-based TeX/LaTeX preamble styles, for the world of scholarly writing and beyond. Founded and maintained by the [Authorea](http://www.authorea.com) team.
 
 **CAUTION: This repository is in a pre-alpha dev sprint, consider it completely unstable until a 0.1.0 release**
 
@@ -10,11 +10,18 @@ A collection of ERB-based TeX/LaTeX preamble styles, for the world of scholarly 
 
 ## Common Questions
 
-**Does this repository compete with [CTAN](www.ctan.org)?** No, to the contrary. It build on top of the CTAN wealth of LaTeX packages, and some custom publisher-provided ones, to assemble styling templates that fully conform to a given set of submission guidelines. The original use case has been submissions of scholarly articles, but we welcome extensions to theses, homeworks, quizzes, exercise sets, etc.
+**Does this repository compete with [CTAN](http://www.ctan.org)?** No, to the contrary. It builds on top of the CTAN wealth of LaTeX packages, and some custom publisher-provided ones, to assemble styling templates that fully conform to specific sets of submission guidelines. The original use case has been submissions of scholarly articles, but we welcome extensions to theses, homeworks, quizzes, exercise sets, etc.
 
 **Why the choice of Ruby and ERB?** We wanted to optimize for simplicity and reusability, so we avoided more tool-focused templating solutions, such as Pandoc templates, or more elaborate XML-based solutions common to publishers.
 
-**What is the Goal?**: Anyone should be able to grab this repository, write down a tiny metadata file, split out the header and main body of their LaTeX document and then have it typeset in but a few lines of Ruby ([example](https://github.com/Authorea/texstyles/blob/master/examples/example_stylize.rb)). We developed this component for our Authorea exporter and are happy to contribute it back to the community and develop it jointly from here on out.
+**What is the Goal?** Anyone should be able to grab this repository, write down a tiny metadata file, split out the header and main body of their LaTeX document and then have it typeset in but a few lines of Ruby ([example](https://github.com/Authorea/texstyles/blob/master/example/example_stylize.rb)). We developed this component for our Authorea exporter and are happy to contribute it back to the community and develop it jointly from here on out.
+
+** Wait, it's not so simple, how about...** This repository collects and refines an ever-growing dataset of stylistic templates for LaTeX documents. As such, it currently focuses entirely on document frontmatter/preamble information, and misses out on a long list of additional concerns, for example:
+  * citation styles, and going beyond LaTeX citations (via CSL)
+  * internationalization
+  * conflict-free use of a default set of packages
+
+To address these issues we have also released the [texstylist](https://github.com/Authorea/texstylist) Ruby gem, which is almost always the preferable entry point, as the texstyles library is included in it and a higher-level API is provided.
 
 ## Usage
 
@@ -44,7 +51,7 @@ stylized_document = stylized_preamble + "a basic example\n"  + "\\end{document}"
 # Enjoy!
 ```
 
-You can see a full example [here](https://github.com/Authorea/texstyles/blob/master/examples/example_stylize.rb)
+You can see a full example [here](https://github.com/Authorea/texstyles/blob/master/example/example_stylize.rb)
 
 ## Installation
 
