@@ -51,18 +51,21 @@
 <% if !@alternative_author_string.to_s.empty? %>
  <%= @alternative_author_string %>
 <% else %>
-\author{<%=@first_author%>\thanksref{1}
-<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
-\and <%=@coauthor_list[i]%>\thanksref{<%=i+2%>}<% end %><% end %>}
+\author{<%=@first_author%>\thanksref{1}%
+%<% @coauthor_list.each_with_index do |item, index| %>
+\and <%=item%>\thanksref{<%=index+2%>}
+%<% end %>
+}
 
 \institute{<%=@first_affiliation%>\label{1}
-<% if !@coauthor_list.to_a.empty? %><% for i in (0..@coauthor_list.length-1) %>
-\and <%=@coauthor_affiliations[i]%>\label{<%=i+2%>}
-<% end %><% end %>}
+<% @coauthor_affiliations.each_with_index do |item, index| %>
+\and <%=item%>\label{<%=index+2%>}
+<% end %>
+}
 <% end %>
 
 
-\date{Received: date / Accepted: date}
+% \date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
 
 

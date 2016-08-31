@@ -27,9 +27,19 @@ Or install it yourself as:
 
 ## Usage
 
-## Contributing
+## Roadmap
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Authorea/texstyles.
+### Supported
+ * 100+ and growing scholarly export styles
+ * Core metadata items of scholarly articles
+ * White/blacklisting LaTeX style and class conflicts
+ * Independent citation style specifications
+
+### Upcoming
+ * Postamble support: Certain styles use a \begin{env}\end{env} wrapper around the entire article body, see e.g. a0poster
+ * Support for the full range of scholarly metadata. Need: \keywords, thesis metadata, journal metadata
+ * Decide on and use a standardized scholarly metadata language as input, instead of our custom YML dialect. Suggestions welcome!
+ * Gradually improve all export styles to fit the improved metadata scheme.
 
 ## License
 

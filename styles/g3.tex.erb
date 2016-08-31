@@ -40,8 +40,15 @@
 
 \correspondingauthor{Corresponding Author}
 
-<%= @abstract_begin_end %>
+<% if !@abstract_begin_end.empty? %>
+  <%= @abstract_begin_end %>
+<% else %>
+% An abstract is a requirement for the g3 template
+\begin{abstract}\end{abstract}
+<% end %>
 
+
+\keywords{} % keywords are also required
 \setboolean{displaycopyright}{true}
 
 \begin{document}

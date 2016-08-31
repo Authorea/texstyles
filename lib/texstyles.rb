@@ -8,7 +8,7 @@ module Texstyles
     end
 
     def list
-      Dir.glob(File.join(@@root, 'styles', "*.tex.erb")).map{|path| File.basename(path,'.tex.erb')}
+      Dir.glob(File.join(@@root, 'styles', "*.tex.erb")).map{|path| File.basename(path,'.tex.erb')}.sort
     end
 
     def categories
