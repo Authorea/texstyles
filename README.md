@@ -27,6 +27,34 @@ Or install it yourself as:
 
 ## Usage
 
+```ruby
+require 'texstyles'
+
+header = '% Header goes here'
+abstract = '% Abstract goes here'
+
+metadata = {
+  'title' => 'An example scholarly article',
+  # ... full range of scholarly metadata omitted for space
+  'header' => header,
+  'abstract' => abstract
+}
+
+# Choose any available Texstyles::Style here
+# Full list can be fetched via: Texstyles::Style.list
+authorea_style = Texstyles::Style.new(:authorea)
+
+# To obtain the correct latex preamble for the given style:
+stylized_preamble = authorea_style.stylize_metadata(metadata)
+
+# Then piece together a document by hand (or use the texstylist gem for further automation)
+stylized_document = stylized_preamble + "a basic example\n"  + "\\end{document}"
+
+# Enjoy!
+```
+
+You can see a full example [here](https://github.com/Authorea/texstyles/blob/master/examples/example_stylize.rb)
+
 ## Roadmap
 
 ### Supported
