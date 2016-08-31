@@ -1,7 +1,7 @@
 # coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = "texstyles"
-  spec.version       = "0.0.5"
+  spec.version       = "0.0.6"
 
   spec.authors       = ["Deyan Ginev"]
   spec.email         = ["deyan@authorea.com"]
