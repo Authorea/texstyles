@@ -29,17 +29,28 @@ module Texstyles
     end
 
     def render_latex(options = {})
-      @default_packages = options[:default_packages].to_s
-      @header = options[:header].to_s
-      @alternative_author_string = options[:alternative_author_string].to_s
-      @title = options[:title].to_s
-      @short_title = options[:short_title].to_s
-      @first_author = options[:first_author].to_s
-      @first_affiliation = options[:first_affiliation].to_s
-      @coauthor_list = options[:coauthor_list].to_a
-      @coauthor_affiliations = options[:coauthor_affiliations].to_a
+      @default_packages = options["default_packages"].to_s
+      @header = options["header"].to_s
+      @alternative_author_string = options["alternative_author_string"].to_s
+      @title = options["title"].to_s
+      @short_title = options["short_title"].to_s
 
-      @abstract = options[:abstract].to_s
+      @authors = options["authors"] || []
+      @affiliations = options["affiliations"] || []
+
+      # TODO: Refactor these together with the templates into a more elegant workflow,
+      #       more aware of multiple affiliations
+      @authors.each do |data|
+        # set the first affiliation as the default one, if not set and we have a list
+        data["affiliation"] ||= (data["affiliations"] && data["affiliations"][0])
+      end
+      @first_author_data = @authors[0] || {}
+      @first_author = @first_author_data["name"].to_s
+      @first_affiliation = @first_author_data["affiliation"].to_s
+      @coauthor_list = @authors[1..-1].to_a.map{|data| data["name"]}
+      @coauthor_affiliations = @authors[1..-1].to_a.map{|data| data["affiliation"]}
+
+      @abstract = options["abstract"].to_s
       if !@abstract.empty?
         @abstract_begin_end = if @abstract.match(/\{abstract\}/)
           @abstract
