@@ -36,8 +36,7 @@ module Texstyles
       @short_title = options["short_title"].to_s
 
       @authors = options["authors"] || []
-      @affiliations = options["affiliations"] || []
-
+      @affiliations = options["affiliations"] || {}
       # TODO: Refactor these together with the templates into a more elegant workflow,
       #       more aware of multiple affiliations
       @authors.each do |data|
@@ -46,9 +45,11 @@ module Texstyles
       end
       @first_author_data = @authors[0] || {}
       @first_author = @first_author_data["name"].to_s
-      @first_affiliation = @first_author_data["affiliation"].to_s
+      @first_affiliation = @first_author_data["affiliation"] && @affiliations[@first_author_data["affiliation"]].to_s
       @coauthor_list = @authors[1..-1].to_a.map{|data| data["name"]}
-      @coauthor_affiliations = @authors[1..-1].to_a.map{|data| data["affiliation"]}
+      @coauthor_affiliations = @authors[1..-1].to_a.map do |data|
+        data["affiliation"] && @affiliations[data["affiliation"]].to_s
+      end
 
       @abstract = options["abstract"].to_s
       if !@abstract.empty?
