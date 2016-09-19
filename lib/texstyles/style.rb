@@ -67,16 +67,18 @@ module Texstyles
       @erb && @erb.result(binding)
     end
 
-    def name
-      @meta['name']
-    end
-
-    def category
-      @meta['category']
-    end
-
     def package_compatible?(package_name)
       @all_compatible || (!@none_compatible && (@meta_default_packages[package_name] != false))
+    end
+
+    # Missing methods are assumed to be @meta getters
+    def method_missing(method_sym, *arguments, &block)
+      @meta[method_sym.to_s]
+    end
+
+    # We can respond to any method, since we're indexing into @meta
+    def self.respond_to?(method_sym, include_private = false)
+      true
     end
 
   end
